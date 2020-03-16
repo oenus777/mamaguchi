@@ -1,2 +1,27 @@
-<h1>Home#about</h1>
-<p>Find me in app/views/home/about.html.erb</p>
+<%= render 'layouts/header' %>
+<div class="container text-center mb-5">
+    <h1>投稿者の心理的安全を第一に</h1>
+    <%= image_tag 'about_image.jpg', class: 'mw-100' %>
+    <h2 class="my-5 mx-auto">サイト利用者の心構え</h2>
+    <ul class="list-unstyled mx-auto text-center">
+        <li class="my-3 rule">①<span class="list">投稿してはいけない内容は無い</span></li>
+        <li class="my-3 rule">②<span class="list">誹謗中傷、荒らし行為はしない</span></li>
+        <li class="my-3 rule">③<span class="list">投稿されてる内容を受け止める</span></li>
+        <li class="my-3 rule">④<span class="list">コメントは共感できる場合のみ</span></li>
+        <li class="my-3 rule">⑤<span class="list">アドバイスは求められてるなら</span></li>
+    </ul>
+    <h2 class="my-5 mx-auto">運営側の方針</h2>
+    <p class="lead">上記、サイト利用者の心構えに適さない投稿などを発見した場合<br>
+    直ちに投稿、またはコメントを削除させて頂きます。<br>
+    サイト利用者の心理的安全を守る為の判断と<br>
+    ご理解頂けますと幸いでございます。</p>
+    <h2 class="my-5 mx-auto">運営者より</h2>
+    <p class="lead">妻の話を聞く中で世間の母親に対する母親像と<br>
+    妻が抱える悩みとのギャップが母親の孤立感を増やすのでは無いかと思い<br>
+    人に言えないどんな悩みや愚痴も投稿できるサービスを始めました。<br>
+    旦那さん、両親や友達、SNSなどに言えないママさんの孤立感を少しでも<br>
+    和らげることが出来たら良いなと考えています。<br>
+    改善してほしい点などありましたら随時、受け付けております。<br>
+    どうぞ宜しくお願い致します。</p>
+</div>
+<%= render 'layouts/footer' %>
