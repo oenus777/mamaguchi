@@ -1,0 +1,30 @@
+<%= render 'layouts/header' %>
+<div class="container text-center mb-5 login-list">
+  <h1 class="my-5 mx-auto pb-2">ログイン</h1>
+  <%= render 'layouts/flashes' %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field my-4 mx-auto text-left">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'form-control' %>
+  </div>
+
+  <div class="field my-4 mx-auto text-left">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password",class: 'form-control' %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field my-4 mx-auto">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+
+  <div class="actions my-4">
+    <%= f.submit "ログイン" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</div>
+<%= render 'layouts/footer' %>

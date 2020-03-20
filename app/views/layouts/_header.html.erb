@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand-sm navbar-dark mb-3" style="background-color:#ffcc33;">
+    <nav class="navbar navbar-expand-sm navbar-dark mb-3" style="background-color:#ffcc33;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -12,10 +12,20 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/about">サイトについて</a>
                 </li>
+                <% if user_signed_in? %>
+                <li class="nav-item">
+                    <%= link_to "マイページ", users_show_path(current_user), class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to "ログアウト", users_sign_out_path, method: :delete, class: "nav-link" %>
+                </li>
+                <% else %>
                 <li class="nav-item">
                     <a class="nav-link" href="/login">ログイン</a>
                 </li>
+                <% end %>
             </ul>
         </div>
     </nav>
 </header>
+

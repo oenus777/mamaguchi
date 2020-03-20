@@ -1,0 +1,39 @@
+<%= render 'layouts/header' %>
+<div class="container text-center mb-5 login-list">
+  <h1 class="my-5 mx-auto pb-2">新規ユーザー登録</h1>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  
+  
+  <div class="field my-4 mx-auto text-left">
+    <%= f.label :name %><br />
+    <%= f.text_field :name,autofocus: true,autocomplete: "username",class: "form-control" %>
+  </div>
+  
+  <div class="field my-4 mx-auto text-left">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autocomplete: "email",class: "form-control" %>
+  </div>
+
+  <div class="field my-4 mx-auto text-left">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %>文字以上</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password",class: "form-control" %>
+  </div>
+
+  <div class="field my-4 mx-auto text-left">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "form-control" %>
+  </div>
+
+  <div class="actions my-4">
+    <%= f.submit "新規登録" %>
+  </div>
+  <%= render "devise/shared/links" %>
+<% end %>
+</div>
+
+
+<%= render 'layouts/footer' %>
