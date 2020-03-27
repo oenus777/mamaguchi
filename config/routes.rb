@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  get 'users/index'
-  get 'users/show'
-  devise_for :users
-  
+
+  devise_for :users, controller: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+  } 
+
   devise_scope :user do
     get '/login', to: 'devise/sessions#new'
     post '/login', to: 'devise/sessions#create'
@@ -11,4 +13,7 @@ Rails.application.routes.draw do
   
   root "home#index"
   get  "/about" => "home#about"
+  resources :users, only: %i[show edit update]
+  resources :posts
+  
 end

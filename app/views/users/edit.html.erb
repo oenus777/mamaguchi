@@ -1,0 +1,26 @@
+<div class="container text-center mb-5">
+    <%= render 'layouts/flashes' %>
+    <h1>ユーザー情報編集</h1>
+    <div class="container-box mx-auto">
+        <%= form_for(@user) do |f| %>
+        <div class="field my-4 mx-auto text_center">
+        <%= f.label :image,class: 'list' %><br />
+        <% if @user.image.attached? %>
+        <%= image_tag @user.image, class: "profile_image my-4" %>
+        <% else %>
+        <%= image_tag 'default.jpg', class: "profile_image my-4" %>
+        <% end %>
+    　　<%= f.file_field :image %>
+  　　　　</div>
+ 
+  　　　　<div class="field my-4 mx-auto text_center">
+    　　<%= f.label :update_name,class: 'list' %><br />
+    　　<%= f.text_field :name, autocomplete: "name",class: "form-control",maxlength: "8" %>
+  　　　　</div>
+
+        <div class="actions my-4">
+        <%= f.submit "更新",class: 'btn btn-danger btn-lg my-3' %>
+        </div>
+        <% end %>
+    </div>
+</div>

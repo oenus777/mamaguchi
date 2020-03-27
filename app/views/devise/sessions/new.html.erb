@@ -1,5 +1,4 @@
-<%= render 'layouts/header' %>
-<div class="container text-center mb-5 login-list">
+<div class="container text-center mb-5 container-box">
   <h1 class="my-5 mx-auto pb-2">ログイン</h1>
   <%= render 'layouts/flashes' %>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -27,4 +26,3 @@
 
 <%= render "devise/shared/links" %>
 </div>
-<%= render 'layouts/footer' %>

@@ -1,0 +1,20 @@
+<div class="container text-center mb-3">
+    <%= render 'layouts/flashes' %>
+    <h1>ホーム画面</h1>
+    <% if @user.image.attached? %>
+    <%= image_tag @user.image, class: "profile_image mt-4" %>
+    <% else %>
+    <%= image_tag 'default.jpg', class: "profile_image mt-4" %>
+    <% end %>
+    <p class="my-1"><%= @user.name %></p>
+    <%= link_to '投稿する',new_post_path, class:'btn btn-danger btn-lg my-4' %>
+    <h2 class="my-3 mx-auto">投稿一覧</h2>
+</div>
+<div class="container text-center mb-5" >
+    <div class="row card-area mx-auto" >
+            <%= render 'posts/cards', collection: @posts %>
+    </div>
+　　<div class="my-4 text-center">
+            <%= paginate @posts %>
+  　</div>
+</div>
