@@ -1,0 +1,26 @@
+<div class="container text-center mb-5">
+    <%= render 'layouts/flashes' %>
+    <h1>人に言えない悩み、愚痴がある子育て中のママへ</h1>
+    <%= link_to '投稿する',new_user_registration_path, class:'btn btn-danger btn-lg my-4' %>
+    <h2 class="my-3 mx-auto">新着投稿一覧</h2>
+    <div class="card-group">
+        <div id="card-list" class="row">
+            <% @posts.each do |post| %>
+            <%= link_to post_path(post) do %>
+            <div class="card col-md-4" style="width: 18rem;">
+                <% if post.images.attached? %>
+                <%= image_tag 'no_image.jpg', class: "card-img-top" %>
+                <% else %>
+                <%= image_tag 'no_image.jpg', class: "card-img-top" %>
+                <% end %>
+                <div class="card-body">
+                    <h3 class="card-title"><%= post.title %></h3>
+                    <p class="card-text"><%= post.content %></p>
+                </div>
+            </div>
+        <% end %>
+        <% end %>
+  　　　　<%= paginate @posts %>
+  　　　　</div>
+　　</div>
+</div>

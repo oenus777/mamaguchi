@@ -26,6 +26,7 @@ gem 'rubocop', require: false
 gem 'rubocop-rails'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'kaminari'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -1,5 +1,4 @@
-<%= render 'layouts/header' %>
-<div class="container text-center mb-5 login-list">
+<div class="container text-center mb-5 container-box">
   <h1 class="my-5 mx-auto pb-2">新規ユーザー登録</h1>
   <%= render "devise/shared/error_messages", resource: resource %>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -34,6 +33,3 @@
   <%= render "devise/shared/links" %>
 <% end %>
 </div>
-
-
-<%= render 'layouts/footer' %>

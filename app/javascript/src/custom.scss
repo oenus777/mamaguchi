@@ -1,9 +1,10 @@
 body {
-    background-color:whitesmoke;
+    background-color:#faf3ea;
 }
 
 .container {
     font-family:Meiryo;
+    border-radius:4px;
 }
 
 .alert {
@@ -11,9 +12,10 @@ body {
 }
 
 h1 {
-    font-size:28px;
-    font-weight:500;
+    font-size:18px;
+    font-weight:700;
     font-family:Meiryo;
+    color:grey;
 }
 
 .navbar {
@@ -28,8 +30,13 @@ h1 {
 }
 
 .container h2 {
-    border-bottom:5px solid #ffcc33;
-    width:55%;
+    border-bottom:2px solid #eb616c;
+    width:40%;
+    font-size:20px;
+}
+
+.lead {
+    font-size:16px;
 }
 
 .rule {
@@ -41,22 +48,61 @@ h1 {
     font-weight:600;
 }
 
-.login-list {
-    border:3px solid gray;
+.container-box {
+    width:80%;
+    border:1px solid #faf3ea;
+    border-radius:4px;
     padding-bottom:50px;
     box-shadow:1px 1px 2px;
     background-color:white;
 }
 
-.login-list h1 {
+.container-box h1 {
     width:50%;
-    border-bottom:3px solid #ffcc33;
+    border-bottom:3px solid #eb616c;
 }
 
 .field {
     width:50%;    
 }
 
+.profile_image {
+    width:200px;
+    height:200px;
+    object-fit:cover;
+    border-radius:50%;
+}
+
+.card {
+    padding-left:0px;
+}
+
+.card-title {
+    color:grey;
+}
+
+.card-text {
+    color:grey;
+}
+
+.card-area {
+    width:80%;
+}
+
+.justify-center {
+    justify-content:center;
+}
+
+.page-link {
+    color:#eb616c;
+}
+
+
+.page-item.active .page-link {
+    background-color:#eb616c;
+    border-color:#eb616c;
+}
+    
 footer {
     margin-top:100px;
 }
