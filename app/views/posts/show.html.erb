@@ -1,2 +1,8 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="container text-center mb-5">
+    <h1>投稿内容</h1>
+    <div class="container-box mx-auto px-5">
+        <h2 class="my-4 mx-auto"><%= @post.title %></h2>
+        <p><%= @post.content %></p>
+        <%= render 'likes/like', collection: @post %>
+    </div>
+</div>

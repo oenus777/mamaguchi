@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'likes/create'
+  get 'likes/destroy'
   devise_for :users, controller: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
@@ -15,5 +17,6 @@ Rails.application.routes.draw do
   get  "/about" => "home#about"
   resources :users, only: %i[show edit update]
   resources :posts
+  resources :likes, only: [:create, :destroy]
   
 end
