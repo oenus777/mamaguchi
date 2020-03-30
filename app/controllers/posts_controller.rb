@@ -1,12 +1,12 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create destroy]
-  before_action :user_posts, only: %i[show edit update destroy]
   
   def index
     @posts = Post.with_attached_images.page(params[:page])
   end
 
   def show
+    @post = Post.find(params[:id])
   end
 
   def new
