@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'favorites/create'
+  get 'favorites/destroy'
   get 'likes/create'
   get 'likes/destroy'
   devise_for :users, controller: {
@@ -18,5 +20,6 @@ Rails.application.routes.draw do
   resources :users, only: %i[show edit update]
   resources :posts
   resources :likes, only: [:create, :destroy]
+  resources :favorites, only: [:create, :destroy]
   
 end
