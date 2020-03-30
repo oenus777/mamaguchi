@@ -4,5 +4,6 @@
         <h2 class="my-4 mx-auto"><%= @post.title %></h2>
         <p><%= @post.content %></p>
         <%= render 'likes/like', collection: @post %>
+        <%= render 'favorites/favorite', collection: @post %>
     </div>
 </div>

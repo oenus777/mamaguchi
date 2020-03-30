@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_29_020513) do
+ActiveRecord::Schema.define(version: 2020_03_30_021104) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 2020_03_29_020513) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_favorites_on_post_id"
+    t.index ["user_id", "post_id"], name: "index_favorites_on_user_id_and_post_id", unique: true
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_id"
@@ -50,6 +60,7 @@ ActiveRecord::Schema.define(version: 2020_03_29_020513) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "likes_count", default: 0, null: false
+    t.integer "favorites_count", default: 0, null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
