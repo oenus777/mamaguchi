@@ -5,5 +5,14 @@
         <p><%= @post.content %></p>
         <%= render 'likes/like', collection: @post %>
         <%= render 'favorites/favorite', collection: @post %>
+        <%= link_to @user do %>
+        <% if @user.image.attached? %>
+        <%= image_tag @user.image, class: "profile_image_small my-4 mr-3" %>
+        <% else %>
+        <%= image_tag 'default.jpg', class: "profile_image_small my-4" %>
+        <% end %>
+        <%= @user.name %>
+        <% end %>
+        </div>
     </div>
 </div>
