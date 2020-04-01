@@ -1,0 +1,15 @@
+<div class="comment-box mx-auto pt-4">
+    <%= render 'layouts/flashes' %>
+    <%= render 'layouts/error_messages' %>
+    <%= form_for(@comment) do |f| %>
+    <%= f.hidden_field :post_id %>
+    <div class="field mx-auto">
+    <%= f.label :comment,class: 'list' %><br />
+    <%= f.text_area :comment,class: "form-control",maxlength: "1000",size: "20x10",:placeholder => "コメントを１０００文字以内で入力" %>
+  　</div>
+  　　　
+    <div class="actions">
+    <%= f.submit "書き込み",class: 'btn btn-danger btn-lg' %>
+    </div>
+    <% end %>
+</div>

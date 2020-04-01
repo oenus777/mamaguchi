@@ -62,6 +62,16 @@ h1 {
     border-bottom:3px solid #eb616c;
 }
 
+.content {
+    border-bottom:1px dashed #ccc;
+}
+
+.content h2 {
+    font-size:20px;
+    font-weight:700;
+    color:grey;
+}
+
 .field {
     width:50%;    
 }
@@ -117,6 +127,15 @@ h1 {
 
 .fa-star {
     color:#ffd700;
+}
+
+.comment {
+    width:60%;
+    border-bottom:1px solid #ccc;
+}
+
+.comment-box {
+    border-bottom:1px dashed #ccc;
 }
 
 footer {

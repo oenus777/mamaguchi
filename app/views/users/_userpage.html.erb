@@ -1,0 +1,21 @@
+<div class="container text-center mb-5">
+    <%= render 'layouts/flashes' %>
+    <h1>ユーザーページ</h1>
+    <div class="container-box mx-auto">
+        <% if @user.image.attached? %>
+        <%= image_tag @user.image, class: "profile_image my-4" %>
+        <% else %>
+        <%= image_tag 'default.jpg', class: "profile_image my-4" %>
+        <% end %>
+        <h2 class="my-3 mx-auto"><%= @user.name %></h2>
+        <%= render 'users/follow' %>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active">投稿</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">分かる</a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -5,6 +5,9 @@ ja:
         image: 投稿画像
         title: タイトル
         content: 投稿内容
+        comment_list: コメント一覧
+      comment:
+        comment: コメントを書く
       user:
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
