@@ -35,6 +35,11 @@ class PostsController < ApplicationController
   def destroy
   end
   
+  def search
+    @q = Post.search(search_params)
+    @posts = @q.result.with_attached_images.page(params[:page])
+  end
+  
   private
   
   def post_params
@@ -42,6 +47,10 @@ class PostsController < ApplicationController
     :content,
     images: [])
     .merge(user_id: current_user.id)
+  end
+  
+  def search_params
+    params.require(:q).permit(:title_cont,:content_cont)
   end
   
   def user_posts
