@@ -5,6 +5,8 @@ class HomeController < ApplicationController
     if user_signed_in?
       @user = User.find(current_user.id)
       @follow_posts = Post.all
+    else
+      @all_posts.limit(9)
     end
   end
 
@@ -14,6 +16,7 @@ class HomeController < ApplicationController
   private
   
   def all_posts
-    @posts = Post.with_attached_images.page(params[:page])
+    @all_posts = Post.with_attached_images.page(params[:page])
   end
+  
 end
