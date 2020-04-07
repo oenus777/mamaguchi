@@ -1,2 +1,26 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<div class="container text-center mb-5">
+    <%= render "layouts/error_messages" %>
+    <h1>投稿内容を編集</h1>
+    <div class="container-box mx-auto">
+        <%= form_for(@post) do |f| %>
+        <div class="field my-4 mx-auto text_center">
+        <%= f.label :images,class: 'list' %><br />
+    　　<%= f.file_field :images, multiple: true %>
+  　　　　</div>
+ 
+  　　　　<div class="field my-4 mx-auto text_center">
+    　　<%= f.label :title,class: 'list' %><br />
+    　　<%= f.text_field :title,value: @post.title ,class: "form-control",maxlength: "30" %>
+  　　　　</div>
+  　　　　
+  　　　　<div class="field my-4 mx-auto text_center">
+    　　<%= f.label :content,class: 'list' %><br />
+    　　<%= f.text_area :content,value: @post.content ,class: "form-control",maxlength: "1000",row: 10 %>
+  　　　　</div>
+  　　　
+        <div class="actions my-4">
+        <%= f.submit "保存",class: 'btn btn-danger btn-lg my-3' %>
+        </div>
+        <% end %>
+    </div>
+</div>
