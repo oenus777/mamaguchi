@@ -5,7 +5,7 @@
     <h2 class="my-3 mx-auto">新着投稿一覧</h2>
     <div class="card-group">
         <div id="card-list" class="row">
-            <% @posts.each do |post| %>
+            <% @all_posts.each do |post| %>
             <%= link_to post_path(post) do %>
             <div class="card col-md-4" style="width: 18rem;">
                 <% if post.images.attached? %>
@@ -20,7 +20,8 @@
             </div>
         <% end %>
         <% end %>
-  　　　　<%= paginate @posts %>
   　　　　</div>
 　　</div>
+　　<p class="mt-3">投稿一覧を全て見たい方はログインしてください。</p>
+    <%= link_to 'ログイン',login_path, class:'btn btn-danger btn-lg my-2' %>
 </div>

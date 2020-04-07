@@ -1,3 +1,5 @@
+$main-color: #eb616c;
+
 body {
     background-color:#faf3ea;
 }
@@ -5,6 +7,11 @@ body {
 .container {
     font-family:Meiryo;
     border-radius:4px;
+    h2 {
+        border-bottom:2px solid $main-color;
+        width:40%;
+        font-size:20px;
+    }
 }
 
 .alert {
@@ -29,12 +36,6 @@ h1 {
     font-size:xx-large;
 }
 
-.container h2 {
-    border-bottom:2px solid #eb616c;
-    width:40%;
-    font-size:20px;
-}
-
 .lead {
     font-size:16px;
 }
@@ -55,21 +56,19 @@ h1 {
     padding-bottom:50px;
     box-shadow:1px 1px 2px;
     background-color:white;
-}
-
-.container-box h1 {
-    width:50%;
-    border-bottom:3px solid #eb616c;
+    h1 {
+        width:50%;
+        border-bottom:3px solid $main-color;
+    }
 }
 
 .content {
     border-bottom:1px dashed #ccc;
-}
-
-.content h2 {
-    font-size:20px;
-    font-weight:700;
-    color:grey;
+    h2 {
+        font-size:20px;
+        font-weight:700;
+        color:grey;
+    }
 }
 
 .field {
@@ -112,17 +111,17 @@ h1 {
 }
 
 .page-link {
-    color:#eb616c;
+    color:$main-color;
 }
 
 
 .page-item.active .page-link {
-    background-color:#eb616c;
-    border-color:#eb616c;
+    background-color:$main-color;
+    border-color:$main-color;
 }
 
 .fa-heart {
-    color:#eb616c;
+    color:$main-color;
 }
 
 .fa-star {

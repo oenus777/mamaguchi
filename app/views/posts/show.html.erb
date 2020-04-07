@@ -1,4 +1,5 @@
 <div class="container text-center mb-5">
+    <%= render 'layouts/flashes' %>
     <h1>投稿内容</h1>
     <div class="container-box mx-auto px-5">
         <div class="content">
@@ -6,6 +7,12 @@
             <p><%= @post.content %></p>
             <%= render 'likes/like', collection: @post %>
             <%= render 'favorites/favorite', collection: @post %>
+        <% if @user == current_user %>
+        <div class="edit-destroy" >
+            <%= link_to '編集', edit_post_path(@post) %>
+            <span class="mr-2"><%= link_to '削除', post_path(@post), method: :delete, data: { confirm: "#{@post.title}を削除してもよろしいですか？" } %></span>
+        </div>
+        <% end %>
         <%= link_to @user do %>
         <% if @user.image.attached? %>
         <%= image_tag @user.image, class: "profile_image_small my-4" %>

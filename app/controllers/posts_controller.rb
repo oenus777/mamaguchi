@@ -1,12 +1,12 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create destroy]
+  before_action :set_post, only: %i[show edit update destroy]
   
   def index
     @posts = Post.with_attached_images.page(params[:page])
   end
 
   def show
-    @post = Post.find(params[:id])
     @user = User.find(@post.user_id)
     @comment = Comment.new(post_id: @post.id)
     @post_comments = Comment.where(post_id: params[:id])
@@ -30,9 +30,19 @@ class PostsController < ApplicationController
   end
 
   def update
+    @post.update(post_params)
+    flash[:notice] = "#{@post.title}の編集が完了しました"
+    redirect_to root_path
   end
 
   def destroy
+    if @post.destroy
+      flash[:notice] = "#{@post.title}を削除しました"
+      redirect_to root_path
+    else
+      flash[:alert] = "#{@post.title}を削除できませんでした"
+      redirect_to @post
+    end
   end
   
   def search
@@ -51,6 +61,10 @@ class PostsController < ApplicationController
   
   def search_params
     params.require(:q).permit(:title_cont,:content_cont)
+  end
+  
+  def set_post
+    @post = Post.find(params[:id])
   end
   
   def user_posts

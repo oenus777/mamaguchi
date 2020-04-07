@@ -1,14 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'comments/create'
-  get 'comments/destroy'
-  get 'create/destroy'
-  get 'relationships/create'
-  get 'relationships/destroy'
-  get 'favorites/create'
-  get 'favorites/destroy'
-  get 'likes/create'
-  get 'likes/destroy'
   devise_for :users, controller: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
@@ -22,6 +13,7 @@ Rails.application.routes.draw do
   
   root "home#index"
   get  "/about" => "home#about"
+  get  "/search" => "posts#search"
   resources :users, only: %i[show edit update]
   resources :posts
   resources :likes, only: [:create, :destroy]
