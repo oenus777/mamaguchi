@@ -7,9 +7,13 @@
         <% else %>
         <%= image_tag 'default.jpg', class: "profile_image my-4" %>
         <% end %>
-        <h2 class="my-3 mx-auto"><%= @user.name %></h2>
+        <h2 class="mb-3 mx-auto"><%= @user.name %></h2>
+        <div class="follow-info">
+            <%= link_to "フォロー数 #{@user.followings.count}",followings_path %>
+            <%= link_to "フォロワー数 #{@user.followers.count}",followers_path %>
+        </div>
         <%= render 'users/follow' %>
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs justiry-center">
             <li class="nav-item">
                 <a class="nav-link active">投稿</a>
             </li>
