@@ -128,13 +128,27 @@ h1 {
     color:#ffd700;
 }
 
-.comment {
-    width:60%;
-    border-bottom:1px solid #ccc;
-}
-
 .comment-box {
     border-bottom:1px dashed #ccc;
+    .comment {
+        width:60%;
+        border-bottom:1px solid #ccc;
+    }
+}
+
+.follow-box {
+    border-top:1px dashed #ccc;
+    .follow {
+        width:80%;
+        border-bottom:1px solid #ccc;
+        .profile_image {
+            width:100px;
+            height:100px;
+        }
+        .font {
+            font-size:20px;
+        }
+    }
 }
 
 footer {

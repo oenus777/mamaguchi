@@ -28,6 +28,7 @@ class User < ApplicationRecord
     self.followings.include?(user)
   end
   
+  
          
   validates :name, presence: true, length: { maximum: 8 }
   

@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   root "home#index"
   get  "/about" => "home#about"
   get  "/search" => "posts#search"
+  get  "/users/:id/followers" => "followers#index", as: "followers"
+  get  "/users/:id/followings" => "followings#index", as: "followings"
   resources :users, only: %i[show edit update]
   resources :posts
   resources :likes, only: [:create, :destroy]
