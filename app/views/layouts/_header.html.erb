@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-expand-sm navbar-dark mb-3" style="background-color:#eb616c;">
+    <nav class="navbar navbar-expand-sm navbar-dark mb-3 fixed-top" style="background-color:#eb616c;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -24,11 +24,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/login">ログイン</a>
                 </li>
-                <li class="nav-item">
-                    <%= render 'posts/search_form' %>
-                </li>
                 <% end %>
             </ul>
+            <% if user_signed_in? %>
+            <%= render 'posts/search_form' %>
+            <% end %>
         </div>
     </nav>
 </header>

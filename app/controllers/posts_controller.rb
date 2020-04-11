@@ -60,7 +60,7 @@ class PostsController < ApplicationController
   end
   
   def search_params
-    params.require(:q).permit(:title_cont,:content_cont)
+    params.require(:q).permit(:title_or_content_cont)
   end
   
   def set_post
