@@ -2,6 +2,7 @@ $main-color: #eb616c;
 
 body {
     background-color:#faf3ea;
+    padding-top:90px;
 }
 
 .container {
@@ -12,28 +13,26 @@ body {
         width:40%;
         font-size:20px;
     }
+    h1 {
+        font-size:20px;
+        font-weight:700;
+        font-family:Meiryo;
+        color:grey;
+    }
 }
 
 .alert {
     width:50%;
 }
 
-h1 {
-    font-size:20px;
-    font-weight:700;
-    font-family:Meiryo;
-    color:grey;
-}
-
 .navbar {
     box-shadow:1px 1px 1px #ccc;
     font-weight:700;
-}
-
-.navbar-brand{
-    font-family:Meiryo;
-    font-weight:900;
-    font-size:xx-large;
+    .navbar-brand {
+        font-family:Meiryo;
+        font-weight:900;
+        font-size:xx-large;
+    }
 }
 
 .lead {
