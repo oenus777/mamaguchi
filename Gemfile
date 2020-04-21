@@ -31,6 +31,7 @@ gem 'counter_culture', '~> 1.8'
 gem 'ransack'
 gem 'rails_admin'
 gem 'cancancan'
+gem 'mini_magick'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

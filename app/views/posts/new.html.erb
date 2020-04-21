@@ -1,21 +1,27 @@
 <div class="container text-center mb-5">
-      <%= render "layouts/error_messages" %>
+    <%= render "layouts/error_messages" %>
     <h1>新規投稿</h1>
     <div class="container-box mx-auto">
         <%= form_for(@post) do |f| %>
-        <div class="field my-4 mx-auto text_center">
-        <%= f.label :images,class: 'list' %><br />
-    　　<%= f.file_field :images, multiple: true %>
-  　　　　</div>
- 
-  　　　　<div class="field my-4 mx-auto text_center">
-    　　<%= f.label :title,class: 'list' %><br />
-    　　<%= f.text_field :title,class: "form-control",maxlength: "30" %>
+        <div class="field mt-4 mx-auto text_center">
+          <%= f.label :images,class: 'list' %><br />
+        </div>
+        <ul id="preview">
+            <div id="upload_area" tabindex:"0">
+                <%= f.label :images, class: "upload-label", for: "post_images_0", data: {label_id: 0 } do %>
+                <%= f.file_field :images, class: "upload-fields", id: "post_images_0", style: "display:none;", multiple: true %>
+                <pre><i class="fas fa-camera fa-lg"></i>アップロード</pre>
+                <% end %>
+            </div>
+        </ul>
+   　　　<div class="field my-4 mx-auto text_center">
+    　  　  <%= f.label :title,class: 'list' %><br />
+          <%= f.text_field :title,class: "form-control",maxlength: "30" %>
   　　　　</div>
   　　　　
   　　　　<div class="field my-4 mx-auto text_center">
     　　<%= f.label :content,class: 'list' %><br />
-    　　<%= f.text_area :content,class: "form-control",maxlength: "1000",row: 10 %>
+    　　<%= f.text_area :content,class: "form-control",maxlength: "1000",rows: 12 %>
   　　　　</div>
   　　　
         <div class="actions my-4">

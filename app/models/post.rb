@@ -16,6 +16,10 @@ class Post < ApplicationRecord
   
   paginates_per 9
   
+  def thumbnail
+    return self.variant(resize: '200x200').processed
+  end
+  
   def like(user)
     likes.create(user_id: user.id)
   end
