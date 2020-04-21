@@ -6,9 +6,13 @@
         <div class="field my-4 mx-auto text_center">
         <%= f.label :image,class: 'list' %><br />
         <% if @user.image.attached? %>
-        <%= image_tag @user.image, class: "profile_image my-4" %>
+        <%= f.label :image,class: 'preview' do %>
+        <%= image_tag @user.image, class: "profile_image edit my-4" %>
+        <% end %>
         <% else %>
-        <%= image_tag 'default.jpg', class: "profile_image my-4" %>
+        <%= f.label :image,class: 'preview' do %>
+        <%= image_tag 'default.jpg', class: "profile_image edit my-4" %>
+        <% end %>
         <% end %>
     　　<%= f.file_field :image %>
   　　　　</div>

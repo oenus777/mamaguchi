@@ -22,6 +22,7 @@ class PostsController < ApplicationController
       flash[:notice] = "#{@post.title}を新規投稿しました"
       redirect_to current_user
     else
+      flash[:alert] = "#{@post.title}を投稿できませんでした"
       render :new
     end
   end

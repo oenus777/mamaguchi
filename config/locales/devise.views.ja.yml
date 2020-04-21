@@ -2,10 +2,10 @@ ja:
   activerecord:
     attributes:
       post:
-        image: 投稿画像
         title: タイトル
         content: 投稿内容
         comment_list: コメント一覧
+        images: 投稿画像(３枚まで)
       comment:
         comment: コメントを書く
       user:

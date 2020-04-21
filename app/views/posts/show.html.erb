@@ -4,23 +4,26 @@
     <div class="container-box mx-auto px-5">
         <div class="content">
             <h2 class="my-4 mx-auto"><%= @post.title %></h2>
-            <p><%= @post.content %></p>
+            <% @post.images.each do |image|%>
+            <%= image_tag image.variant(resize: "150x150"),class: "ml-3" %>
+            <% end %>
+            <p class="mt-5"><%= @post.content %></p>
             <%= render 'likes/like', collection: @post %>
             <%= render 'favorites/favorite', collection: @post %>
-        <% if @user == current_user %>
-        <div class="edit-destroy" >
-            <%= link_to '編集', edit_post_path(@post) %>
-            <span class="mr-2"><%= link_to '削除', post_path(@post), method: :delete, data: { confirm: "#{@post.title}を削除してもよろしいですか？" } %></span>
-        </div>
-        <% end %>
-        <%= link_to @user do %>
-        <% if @user.image.attached? %>
-        <%= image_tag @user.image, class: "profile_image_small my-4" %>
-        <% else %>
-        <%= image_tag 'default.jpg', class: "profile_image_small my-4" %>
-        <% end %>
-        <%= @user.name %>
-        <% end %>
+            <% if @user == current_user %>
+            <div class="edit-destroy" >
+                <%= link_to '編集', edit_post_path(@post) %>
+                <span class="mr-2"><%= link_to '削除', post_path(@post), method: :delete, data: { confirm: "#{@post.title}を削除してもよろしいですか？" } %></span>
+            </div>
+            <% end %>
+            <%= link_to @user do %>
+            <% if @user.image.attached? %>
+            <%= image_tag @user.image, class: "profile_image_small my-4" %>
+            <% else %>
+            <%= image_tag 'default.jpg', class: "profile_image_small my-4" %>
+            <% end %>
+            <%= @user.name %>
+            <% end %>
         </div>
         <% if user_signed_in? %>
         <%= render 'comments/comment_list', collection: @post_comments %>
