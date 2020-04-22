@@ -12,7 +12,7 @@
 </div>
 <div class="container text-center mb-5" >
     <div class="row card-area mx-auto" >
-            <%= render 'posts/cards', collection: @all_posts %>
+            <%= render partial: 'posts/cards', collection: @all_posts, as: "post" %>
     </div>
 　　<div class="my-4 text-center">
             <%= paginate @all_posts %>

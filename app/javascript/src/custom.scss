@@ -196,6 +196,75 @@ body {
     }
 }
 
+.tabs {
+  margin-top: 50px;
+  padding-bottom: 40px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  .tab_item {
+      width: calc(100%/3);
+      height: 50px;
+      border-bottom: 3px solid $main-color;
+      background-color: white;
+      line-height: 50px;
+      font-size: 16px;
+      text-align: center;
+      color: #565656;
+      display: block;
+      float: left;
+      text-align: center;
+      font-weight: bold;
+      transition: all 0.2s ease;
+  }
+  .tab_item:hover {
+      opacity: 0.75;
+  }
+  input[name="tab_item"] {
+      display: none;
+  }
+  .tab_content {
+      display: none;
+      padding: 40px 40px 0;
+      clear: both;
+      overflow: hidden;
+  }
+  #post:checked ~ #post_content,
+  #like:checked ~ #like_content,
+  #favorite:checked ~ #favorite_content {
+      display: block;
+  }
+}
+
+.tabs input:checked + .tab_item {
+  background-color: $main-color;
+  color: #fff;
+}
+
+input[name="tab_item"] {
+  display: none;
+}
+
+.tab_content {
+  display: none;
+  padding: 40px 40px 0;
+  clear: both;
+  overflow: hidden;
+}
+
+
+#all:checked ~ #all_content,
+#programming:checked ~ #programming_content,
+#design:checked ~ #design_content {
+  display: block;
+}
+
+
+.tabs input:checked + .tab_item {
+  background-color: $main-color;
+  color: #fff;
+}
+
 footer {
     margin-top:100px;
 }

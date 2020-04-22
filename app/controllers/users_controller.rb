@@ -7,7 +7,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    
+    @posts = Post.where(user_id: @user.id).page(params[:page])
+    @likes = @user.like_posts.page(params[:page])
+    @favorites = @user.favorite_posts.page(params[:page])
   end
   
   def edit
