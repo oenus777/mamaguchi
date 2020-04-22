@@ -1,10 +1,10 @@
 <header>
-    <nav class="navbar navbar-expand-sm navbar-dark mb-3 fixed-top" style="background-color:#eb616c;">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark mb-3 fixed-top" style="background-color:#eb616c;">
+        <a class="navbar-brand" href="/">ママぐち</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="/">ママぐち</a>
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" id="navbarToggle">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="/about">サイトについて</a>
@@ -13,12 +13,22 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/posts">みんなの投稿</a>
                 </li>
-                <li class="nav-item">
-                    <i class="fas fa-user"></i>
-                    <%= link_to "#{current_user.name}", user_path(current_user), class: "nav-link" %>
-                </li>
-                <li class="nav-item">
-                    <%= link_to "ログアウト", users_sign_out_path, method: :delete, class: "nav-link" %>
+                <li class="nav-item dropdown">
+                    <% if current_user.image.attached? %>
+                    <%= link_to "#", class: "nav-link dropdown-toggle", id: "navbarDropdown", role: "button", data: { toggle: "dropdown" } , aria: { haspopup: "true", expanded: "false" } do %>
+                    <%= image_tag current_user.image.variant(resize:"20x20"), class: "profile_image" %>
+                    <%= current_user.name %>
+                    <% end %>
+                    <% else %>
+                    <%= link_to "#", class: "nav-link dropdown-toggle", id: "navbarDropdown", role: "button", data: { toggle: "dropdown" } , aria: { haspopup: "true", expanded: "false" } do %>
+                    <%= image_tag 'default.jpg', class: "profile_image", :size => "20x20" %>
+                    <%= current_user.name %>
+                    <% end %>
+                    <% end %>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                        <%= link_to "マイページ", user_path(current_user), class: "nav-link dropdown-item text-secondary pl-2" %>
+                        <%= link_to "ログアウト", users_sign_out_path, method: :delete, class: "nav-link dropdown-item text-secondary pl-2" %>
+                    </div>
                 </li>
                 <% else %>
                 <li class="nav-item">

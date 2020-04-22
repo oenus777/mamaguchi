@@ -1,4 +1,4 @@
 <%= search_form_for(@q,url:search_path,html: {class:"form-inline"}) do |f| %>
-<%= f.text_field :title_or_content_cont, class: "form-control",:placeholder => "投稿を検索" %>
-<%= f.submit "検索",class: 'btn btn-dark btn-md ml-2' %>
+<%= f.text_field :title_or_content_cont, class: "form-control my-2 mr-2",:placeholder => "投稿を検索" %>
+<%= f.submit "検索",class: 'btn btn-dark btn-md my-2' %>
 <% end %>

@@ -2,9 +2,9 @@
     <%= render 'layouts/flashes' %>
     <h1>ホーム画面</h1>
     <% if @user.image.attached? %>
-    <%= image_tag @user.image, class: "profile_image mt-4" %>
+    <%= image_tag @user.image.variant(resize:"200x200"), class: "profile_image mt-4" %>
     <% else %>
-    <%= image_tag 'default.jpg', class: "profile_image mt-4" %>
+    <%= image_tag 'default.jpg', class: "profile_image mt-4", :size => "200x200" %>
     <% end %>
     <p class="my-1"><%= @user.name %></p>
     <%= link_to '投稿する',new_post_path, class:'btn btn-danger btn-lg my-4' %>

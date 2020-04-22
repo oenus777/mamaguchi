@@ -15,7 +15,6 @@ body {
     }
     h1 {
         font-size:20px;
-        font-weight:700;
         font-family:Meiryo;
         color:grey;
     }
@@ -75,8 +74,6 @@ body {
 }
 
 .profile_image {
-    width:200px;
-    height:200px;
     object-fit:cover;
     border-radius:50%;
 }
