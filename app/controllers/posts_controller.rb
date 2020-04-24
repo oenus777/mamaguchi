@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create destroy]
   before_action :set_post, only: %i[show edit update destroy]
+  before_action :all_rank, only: %i[index show]
   
   def index
     @posts = Post.with_attached_images.page(params[:page])
@@ -66,6 +67,10 @@ class PostsController < ApplicationController
   
   def set_post
     @post = Post.find(params[:id])
+  end
+  
+  def all_rank
+    @all_ranks = Post.find(Like.group(:post_id).where(created_at: Time.now.beginning_of_month..Time.now.end_of_month).order('count(post_id) desc').limit(3).pluck(:post_id))
   end
   
 end
