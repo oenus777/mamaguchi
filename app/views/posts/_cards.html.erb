@@ -17,13 +17,15 @@
                 <p class="card-text text-left"><%= post.content %></p>
                 <% end %>
                 <div class="user-info py-2 text-left" style="width:390px;">
-                    <%= link_to user_path(@user) do %>
-                    <% if @user.image.attached? %>
-                    <%= image_tag @user.image.variant(resize:"30x30"), class: "profile_image" %>
+                    <% if user_signed_in? %>
+                    <%= link_to user_path(post.user) do %>
+                    <% if post.user.image.attached? %>
+                    <%= image_tag post.user.image.variant(resize:"30x30"), class: "profile_image" %>
                     <% else %>
                     <%= image_tag 'default.jpg', class: "profile_image", :size => "30x30" %>
                     <% end %>
-                    <%= @user.name %>
+                    <%= post.user.name %>
+                    <% end %>
                     <% end %>
                     <%= content_tag :i, "", class: "fas fa-heart" %>
                     <%= content_tag :span, "#{post.likes_count}", class: nil %>
