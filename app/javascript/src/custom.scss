@@ -101,19 +101,56 @@ body {
     border-radius:50%;
 }
 
-//cards style
+//#post_area cards style
 
-.card {
+#post_area .card {
     padding-left:0px;
     box-shadow:1px 1px 2px grey;
     .card-body {
         position: relative;
-        height:216px;
+        height:243px;
         .card-title {
             color:grey;
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
+        }
+        .card-text {
+            color:grey;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow:hidden;
+        }
+        .user-info {
+            border-top:1px dashed lightgrey;
+            position: absolute;
+            bottom:0;
+            width:200px;
+        }
+    }
+    .card-body .ranking {
+        height:auto;
+    }
+}
+
+
+#ranking_area .card {
+    padding-left:0px;
+    box-shadow:1px 1px 2px grey;
+    .card-body {
+        position: relative;
+        .card-title {
+            color:grey;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            border-bottom:1px dashed grey;
+            .title-header {
+                color:white;
+                background-color:$main-color;
+                border-radius:5%;
+            }
         }
         .card-text {
             color:grey;

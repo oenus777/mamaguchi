@@ -3,8 +3,13 @@
     <h1>みんなの投稿</h1>
     <%= link_to '投稿する',new_post_path, class:'btn btn-danger btn-lg my-4' %>
     <h2 class="my-3 mx-auto">新着投稿一覧</h2>
-    <div class="mx-auto" style="max-width:650px;">
-        <%= render partial: 'posts/cards', collection: @posts, as: "post" %>
+    <div class="row" id="content_area">
+        <div class="col-md-8" id="post_area">
+            <%= render partial: 'posts/cards', collection: @posts, as: "post" %>
+        </div>
+        <div class="col-md-4" id="ranking_area">
+            <%= render partial: 'posts/ranking', locals: { ranks: @all_ranks } %>
+        </div>
     </div>
     <div class="mt-5">
         <%= paginate @posts %>

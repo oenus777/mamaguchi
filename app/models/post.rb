@@ -40,8 +40,6 @@ class Post < ApplicationRecord
     favorite_users.include?(user)
   end
   
-  def user
-    return User.find(self.user_id)
-  end
+  
   
 end
