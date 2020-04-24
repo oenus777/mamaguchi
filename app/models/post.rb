@@ -16,10 +16,6 @@ class Post < ApplicationRecord
   
   paginates_per 9
   
-  def thumbnail
-    return self.variant(resize: '200x200').processed
-  end
-  
   def like(user)
     likes.create(user_id: user.id)
   end
@@ -42,6 +38,10 @@ class Post < ApplicationRecord
   
   def favorite?(user)
     favorite_users.include?(user)
+  end
+  
+  def user
+    return User.find(self.user_id)
   end
   
 end

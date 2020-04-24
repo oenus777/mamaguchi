@@ -3,24 +3,10 @@
     <h1>みんなの投稿</h1>
     <%= link_to '投稿する',new_post_path, class:'btn btn-danger btn-lg my-4' %>
     <h2 class="my-3 mx-auto">新着投稿一覧</h2>
-    <div class="card-group">
-        <div id="card-list" class="row">
-            <% @posts.each do |post| %>
-            <%= link_to post_path(post) do %>
-            <div class="card col-md-4" style="width: 18rem;">
-                <% if post.images.attached? %>
-                <%= image_tag 'no_image.jpg', class: "card-img-top" %>
-                <% else %>
-                <%= image_tag 'no_image.jpg', class: "card-img-top" %>
-                <% end %>
-                <div class="card-body">
-                    <h3 class="card-title"><%= post.title %></h3>
-                    <p class="card-text"><%= post.content %></p>
-                </div>
-            </div>
-        <% end %>
-        <% end %>
-  　　　　<%= paginate @posts %>
-  　　　　</div>
+    <div class="mx-auto" style="max-width:650px;">
+        <%= render partial: 'posts/cards', collection: @posts, as: "post" %>
+    </div>
+    <div class="mt-5">
+        <%= paginate @posts %>
 　　</div>
 </div>

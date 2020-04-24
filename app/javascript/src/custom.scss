@@ -5,6 +5,22 @@ body {
     padding-top:90px;
 }
 
+#main_image {
+    position:relative;
+    h1 {
+        position:absolute;
+        color:grey;
+        font-size:24px;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        margin:0;
+        padding:0;
+    }
+}
+
 .container {
     font-family:Meiryo;
     border-radius:4px;
