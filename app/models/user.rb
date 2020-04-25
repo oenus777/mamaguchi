@@ -17,6 +17,12 @@ class User < ApplicationRecord
          
   has_one_attached :image
   
+  def following_users_feeds
+    following_ids = "SELECT follow_id FROM relationships
+                     WHERE user_id = :user_id"
+    Post.where("user_id IN (#{following_ids})", user_id: id)
+  end
+  
   def follow(user)
     followings << user
   end

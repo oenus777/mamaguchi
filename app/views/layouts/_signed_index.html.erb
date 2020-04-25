@@ -13,7 +13,7 @@
 <div class="container text-center mb-5" >
     <div class="row" id="contents_area" >
         <div class="col-md-8" id="post_area">
-            <%= render partial: 'posts/cards', collection: @all_posts, as: "post" %>
+            <%= render partial: 'posts/cards', collection: @follow_posts, as: "post" %>
         </div>
         <div class="col-md-4" id="ranking_area">
             <%= render partial: 'posts/ranking', locals: { ranks: @all_ranks } %>
