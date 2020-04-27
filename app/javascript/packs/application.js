@@ -4,6 +4,7 @@
 // that code so it'll be compiled.
 
 
+global.$ = require('jquery');
 import Rails from '@rails/ujs';
 Rails.start();
 require("turbolinks").start();

@@ -1,1 +1,3 @@
-$("#post-<%= @post.id %> .like").html("<%= escape_javascript(render "likes/like", post: @post) %>");
+console.log('はじめ！');
+$("#post_<%= @post.id %>_buttons .like").html("<%= j(render "likes/like", post: @post) %>");
+console.log('おわり！');
