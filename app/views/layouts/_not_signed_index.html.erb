@@ -6,7 +6,7 @@
     </div>
     <%= link_to '投稿する',new_user_registration_path, class:'btn btn-danger btn-lg my-4' %>
     <h2 class="my-3 mx-auto">新着投稿一覧</h2>
-    <div class="mx-auto" style="max-width:650px;">
+    <div class="mx-auto" id="post_area" style="max-width:650px;">
         <%= render partial: 'posts/cards', collection: @all_posts, as: "post" %>
         <p class="mt-5">投稿一覧を全て見たい方はログインしてください。</p>
         <%= link_to 'ログイン',login_path, class:'btn btn-danger btn-lg my-2' %>

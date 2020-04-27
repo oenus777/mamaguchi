@@ -8,8 +8,10 @@
             <%= image_tag image.variant(resize: "150x150"),class: "ml-3" %>
             <% end %>
             <p class="mt-5"><%= @post.content %></p>
-            <%= render 'likes/like', collection: @post %>
-            <%= render 'favorites/favorite', collection: @post %>
+            <div id="post_<%= @post.id %>_buttons">
+                <%= render partial: 'likes/like', locals: { post: @post } %>
+                <%= render partial: 'favorites/favorite', locals: { post: @post } %>
+            </div>
             <% if @user == current_user %>
             <div class="edit-destroy" >
                 <%= link_to '編集', edit_post_path(@post) %>
