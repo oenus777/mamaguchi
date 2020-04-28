@@ -40,6 +40,4 @@ class Post < ApplicationRecord
     favorite_users.include?(user)
   end
   
-  
-  
 end
