@@ -13,13 +13,19 @@
 <div class="container text-center mb-5" >
     <div class="row" id="contents_area" >
         <div class="col-md-8" id="post_area">
+            <% if @follow_posts.exists? %>
             <%= render partial: 'posts/cards', collection: @follow_posts, as: "post" %>
+            <% else %>
+            <div class="card mt-2">
+                <p class="py-5" style="font-size:20px;">ユーザーをフォローしていません</p>
+            </div>
+            <% end %>
+            <div class="my-4">
+                <%= paginate @follow_posts %>
+            </div>
         </div>
         <div class="col-md-4" id="ranking_area">
             <%= render partial: 'posts/ranking', locals: { ranks: @all_ranks } %>
         </div>
     </div>
-　　<div class="my-4">
-            <%= paginate @all_posts %>
-  　</div>
 </div>
