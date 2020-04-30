@@ -25,9 +25,8 @@ body {
     font-family:Meiryo;
     border-radius:4px;
     h2 {
-        border-bottom:2px solid $main-color;
-        width:40%;
-        font-size:20px;
+        width:100%;
+        font-size:22px;
     }
     h1 {
         font-size:20px;
@@ -106,9 +105,13 @@ body {
 .content {
     border-bottom:1px dashed #ccc;
     h2 {
-        font-size:20px;
+        font-size:26px;
         font-weight:700;
         color:grey;
+    }
+    p {
+        color:grey;
+        font-size:22px;
     }
 }
 
@@ -217,11 +220,28 @@ body {
     color:#ffd700;
 }
 
+.comment-list {
+    .comment {
+        border-bottom:1px solid #ccc;
+        display:flex;
+        flex-flow:row wrap;
+        align-items:center;
+        align-content:center;
+        #user_area {
+            flex-grow:1;
+            flex-basis:34%;
+        }
+        #comment_area {
+            flex-grow:4;
+            flex-basis:60%;
+        }
+    }
+}
+
 .comment-box {
     border-bottom:1px dashed #ccc;
-    .comment {
-        width:60%;
-        border-bottom:1px solid #ccc;
+    .field {
+        width:100%;
     }
 }
 
