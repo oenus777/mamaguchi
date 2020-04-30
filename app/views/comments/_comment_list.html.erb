@@ -1,28 +1,15 @@
-<% if @post_comments.exists? %>
-    <div class="comment-box py-4">
-        <%= content_tag(:label,:comment_list,class: "list") %><br />
-        <% @post_comments.each do |comment| %>
-        <div class="comment row mx-auto py-4">
-            <div class="ml-3">
-                <%= link_to comment.user do %>
-                <% if comment.user.image.attached? %>
-                <%= image_tag comment.user.image, class: "profile_image_small my-auto" %>
-                <% else %>
-                <%= image_tag 'default.jpg', class: "profile_image_small my-auto" %>
-                <% end %>
-                <%= comment.user.name %>
-                <% end %>
-            </div>
-            <div class="py-auto ml-3 mt-3">
-                <%= comment.comment %>
-            </div>
-        </div>
+<div class="comment row py-4">
+    <div class="ml-3" id="user_area">
+        <%= link_to comment.user do %>
+        <% if comment.user.image.attached? %>
+        <%= image_tag comment.user.image.variant(resize: "70x70"), class: "profile_image_small my-auto" %>
+        <% else %>
+        <%= image_tag 'default.jpg', class: "profile_image_small my-auto", :size => "70x70" %>
+        <% end %>
+        <%= comment.user.name %>
         <% end %>
     </div>
-            
-<% else %>
-    <div class="mx-auto py-4">
-        <%= content_tag(:label,:comment_list,class: "list") %><br />
-        <p class="mt-3">コメントがありません。</p>
+    <div class="py-auto ml-3" id="comment_area">
+        <%= comment.comment %>
     </div>
-<% end %>
+</div>

@@ -1,5 +1,5 @@
 <% if current_user != post.user %>
-    <span class="like">
+    <span class="like float-left">
     <% if post.like?(current_user) %>
       <%= form_for(post.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
         <%= button_tag(class: "btn btn-default btn-xs") do %>
