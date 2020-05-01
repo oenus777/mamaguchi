@@ -163,7 +163,7 @@ body {
             border-top:1px dashed lightgrey;
             position: absolute;
             bottom:0;
-            width:200px;
+            width:90%;
             display:flex;
             align-items:center;
             .button-info {
@@ -345,7 +345,7 @@ body {
       border-bottom: 3px solid $main-color;
       background-color: white;
       line-height: 50px;
-      font-size: 16px;
+      font-size: 15px;
       text-align: center;
       color: #565656;
       display: block;
@@ -362,7 +362,7 @@ body {
   }
   .tab_content {
       display: none;
-      padding: 40px 40px 0;
+      padding: 20px 20px 0;
       clear: both;
       overflow: hidden;
   }

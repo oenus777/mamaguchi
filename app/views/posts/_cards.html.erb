@@ -22,7 +22,7 @@
                 <%= content_tag :i, "", class: "fas fa-tag ml-2", style: "color:lightgrey;" %>
                 <%= content_tag :span, "#{post.category.name}", class: "text-muted" %>
                 </p>
-                <div class="user-info py-2 text-left" style="width:390px;">
+                <div class="user-info py-2 text-left">
                     <% if user_signed_in? %>
                     <%= link_to user_path(post.user) do %>
                     <% if post.user.image.attached? %>
