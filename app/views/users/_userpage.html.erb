@@ -22,23 +22,17 @@
             <label class="tab_item" for="favorite">お気に入り</label>
             <div class="tab_content" id="post_content">
                 <div class="tab_content_description">
-                    <div class="row card-area mx-auto" >
-                        <%= render partial: 'posts/cards', collection: @posts, as: "post" %>
-                    </div>
+                    <%= render partial: 'posts/cards', collection: @posts, as: "post" %>
                 </div>
             </div>
             <div class="tab_content" id="like_content">
                 <div class="tab_content_description">
-                    <div class="row card-area mx-auto" >
-                        <%= render partial: 'posts/cards', collection: @likes, as: "post" %>
-                    </div>
+                    <%= render partial: 'posts/cards', collection: @likes, as: "post" %>
                 </div>
             </div>
             <div class="tab_content" id="favorite_content">
                 <div class="tab_content_description">
-                    <div class="row card-area mx-auto" >
-                        <%= render partial: 'posts/cards', collection: @favorites, as: "post" %>
-                    </div>
+                    <%= render partial: 'posts/cards', collection: @favorites, as: "post" %>
                 </div>
             </div>
         </div>
