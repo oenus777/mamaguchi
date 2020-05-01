@@ -1,10 +1,10 @@
-<div class="container text-center mb-5">
+<div class="container mb-5">
     <%= render "layouts/error_messages" %>
-    <h1>新規投稿</h1>
+    <h1 class="text-center">新規投稿</h1>
     <div class="container-box mx-auto">
         <%= form_for(@post) do |f| %>
-        <div class="field mt-4 mx-auto text_center">
-          <%= f.label :images,class: 'list' %><br />
+        <div class="field mt-4">
+          <%= f.label :images,class: 'list',style: "margin-left:45px;" %><br />
         </div>
         <ul id="preview">
             <div id="upload_area" tabindex:"0">
@@ -14,17 +14,22 @@
                 <% end %>
             </div>
         </ul>
-   　　　<div class="field my-4 mx-auto text_center">
+   　　　<div class="field">
     　  　  <%= f.label :title,class: 'list' %><br />
-          <%= f.text_field :title,class: "form-control",maxlength: "30" %>
+          <%= f.text_field :title,class: "form-control ml-4 mt-3",maxlength: "30" %>
   　　　　</div>
   　　　　
-  　　　　<div class="field my-4 mx-auto text_center">
-    　　<%= f.label :content,class: 'list' %><br />
-    　　<%= f.text_area :content,class: "form-control",maxlength: "1000",rows: 12 %>
+  　　　　<div class="field">
+    　　<%= f.label :content,class: 'list ml-2' %><br />
+    　　<%= f.text_area :content,class: "form-control ml-4",maxlength: "1000",rows: 12 %>
   　　　　</div>
   　　　
-        <div class="actions my-4">
+  　　　　<div class="field">
+    　　<%= f.label :category,class: 'list ml-2' %><br />
+    　　<%= f.collection_select :category_id, Category.all, :id, :name, { :prompt => true } , { :class => "form-control ml-4" } %>
+  　　　　</div>
+  　　　　
+        <div class="actions ml-4">
         <%= f.submit "投稿",class: 'btn btn-danger btn-lg my-3' %>
         </div>
         <% end %>

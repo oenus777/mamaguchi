@@ -1,0 +1,25 @@
+<div class="container text-center mb-3">
+    <%= render 'layouts/flashes' %>
+    <h1>カテゴリ別の投稿一覧</h1>
+    <h2 class="my-3 mx-auto">カテゴリ：<%= @category.name %></h2>
+</div>
+<div class="container text-center mb-5">
+    <div class="row" id="contents_area">
+        <div class="col-md-8" id="post_area">
+            <% if @posts.exists? %>
+            <%= render partial: 'posts/cards', collection: @posts, as: "post" %>
+            <% else %>
+            <div class="card mt-2">
+                <p class="py-5" style="font-size:20px;">該当する投稿がありません</p>
+            </div>
+            <% end %>
+            <div class="my-4">
+                <%= paginate @posts %>
+            </div>
+        </div>
+        <div class="col-md-4" id="ranking_area">
+            <%= render partial: 'posts/categories', locals: { categories: @categories } %>
+            <%= render partial: 'posts/category_ranking', locals: { ranks: @category_ranks } %>
+        </div>
+    </div>
+</div>

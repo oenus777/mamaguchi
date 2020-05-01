@@ -6,6 +6,7 @@ class HomeController < ApplicationController
     if user_signed_in?
       @user = User.find(current_user.id)
       @follow_posts = @user.following_users_feeds.with_attached_images.page(params[:page])
+      @categories = Category.all
     else
       @all_posts.limit(9)
     end
@@ -21,7 +22,7 @@ class HomeController < ApplicationController
   end
   
   def all_rank
-    @all_ranks = Post.find(Like.group(:post_id).where(created_at: Time.now.beginning_of_month..Time.now.end_of_month).order('count(post_id) desc').limit(3).pluck(:post_id))
+    @all_ranks = Post.find(Like.group(:post_id).where(created_at: Time.now.prev_month..Time.now).order('count(post_id) desc').limit(3).pluck(:post_id))
   end
   
 end

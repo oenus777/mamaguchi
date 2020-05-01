@@ -1,0 +1,16 @@
+<div class="card my-2">
+    <div class="card-header text-left">
+        カテゴリ一覧
+    </div>
+    <div class="card-body text-left">
+        <div class="category-lists">
+            <% categories.each do |category| %>
+            <div class="category-list">
+                <%= link_to category_path(category) do %>
+                <%= category.name %>
+                <% end %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</div>

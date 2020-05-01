@@ -4,6 +4,7 @@ ja:
       post:
         title: タイトル
         content: 投稿内容
+        category: カテゴリー
         comment_list: コメント一覧
         images: 投稿画像(３枚まで)
       comment:
