@@ -1,0 +1,17 @@
+<div class="card my-2">
+    <div class="card-header text-left">
+        カテゴリ内で共感された投稿(１か月間)
+    </div>
+    <div class="card-body text-left">
+        <% ranks.each do |rank| %>
+        <div class="card-title pb-1">
+            <span class="title-header px-2">タイトル</span>
+            <%= link_to post_path(rank) do %>
+            <%= rank.title %>
+            <% end %>
+            <%= content_tag :i, "", class: "fas fa-heart" %>
+            <%= content_tag :span, "#{rank.likes_count}", class: nil %>
+        </div>
+        <% end %>
+    </div>
+</div>

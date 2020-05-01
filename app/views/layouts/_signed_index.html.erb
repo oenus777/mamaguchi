@@ -25,6 +25,7 @@
             </div>
         </div>
         <div class="col-md-4" id="ranking_area">
+            <%= render partial: 'posts/categories', locals: { categories: @categories } %>
             <%= render partial: 'posts/ranking', locals: { ranks: @all_ranks } %>
         </div>
     </div>

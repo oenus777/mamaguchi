@@ -6,12 +6,13 @@
     <div class="row" id="content_area">
         <div class="col-md-8" id="post_area">
             <%= render partial: 'posts/cards', collection: @posts, as: "post" %>
+            <div class="mt-5">
+                <%= paginate @posts %>
+            </div>
         </div>
         <div class="col-md-4" id="ranking_area">
+            <%= render partial: 'posts/categories', locals: { categories: @categories } %>
             <%= render partial: 'posts/ranking', locals: { ranks: @all_ranks } %>
         </div>
     </div>
-    <div class="mt-5">
-        <%= paginate @posts %>
-　　</div>
 </div>

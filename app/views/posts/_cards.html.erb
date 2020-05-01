@@ -16,6 +16,12 @@
                 <h3 class="card-title text-left"><%= post.title %></h3>
                 <p class="card-text text-left"><%= post.content %></p>
                 <% end %>
+                <p class="text-left mt-2">
+                <%= content_tag :i, "", class: "far fa-clock", style: "color:lightgrey;" %>
+                <%= content_tag :span, "#{post.created_at.strftime('%Y/%m/%d %H:%M')}", class: "text-muted" %>
+                <%= content_tag :i, "", class: "fas fa-tag ml-2", style: "color:lightgrey;" %>
+                <%= content_tag :span, "#{post.category.name}", class: "text-muted" %>
+                </p>
                 <div class="user-info py-2 text-left" style="width:390px;">
                     <% if user_signed_in? %>
                     <%= link_to user_path(post.user) do %>
@@ -27,8 +33,13 @@
                     <%= post.user.name %>
                     <% end %>
                     <% end %>
-                    <%= content_tag :i, "", class: "fas fa-heart" %>
-                    <%= content_tag :span, "#{post.likes_count}", class: nil %>
+                    
+                    <div class="button-info">
+                        <%= content_tag :i, "", class: "fas fa-heart" %>
+                        <%= content_tag :span, "#{post.likes_count}", class: "mr-2" %>
+                        <%= content_tag :i, "", class: "far fa-comment" %>
+                        <%= content_tag :span, "#{post.comments.count}", class: nil %>
+                    </div>
                 </div>
             </div>
         </div>
