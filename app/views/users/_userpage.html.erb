@@ -13,7 +13,7 @@
             <%= link_to "フォロワー数 #{@user.followers.count}",followers_path %>
         </div>
         <%= render 'users/follow' %>
-        <div class="tabs mx-auto">
+        <div class="tabs mx-auto" id="post_area">
             <input id="post" type="radio" name="tab_item" checked>
             <label class="tab_item" for="post">投稿</label>
             <input id="like" type="radio" name="tab_item">
