@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create destroy]
   before_action :set_post, only: %i[show edit update destroy]
   before_action :all_rank, only: %i[index show]
-  
+
   def index
     @posts = Post.with_attached_images.page(params[:page])
     @categories = Category.all
@@ -12,9 +14,9 @@ class PostsController < ApplicationController
     @user = User.find(@post.user_id)
     @comment = Comment.new(post_id: @post.id)
     @post_comments = Comment.where(post_id: params[:id])
-    @category_ranks = Post.group(:id).where(id: (Like.group(:post_id)
+    @category_ranks = Post.group(:id).where(id: Like.group(:post_id)
                           .where(created_at: Time.now.prev_month..Time.now)
-                          .order('count(post_id) desc').pluck(:post_id)))
+                          .order('count(post_id) desc').pluck(:post_id))
                           .where(category_id: @post.category_id).limit(3)
   end
 
@@ -33,8 +35,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @post.update(post_params)
@@ -51,32 +52,31 @@ class PostsController < ApplicationController
       redirect_to @post
     end
   end
-  
+
   def search
     @q = Post.search(search_params)
     @posts = @q.result.with_attached_images.page(params[:page])
   end
-  
+
   private
-  
+
   def post_params
     params.require(:post).permit(:title,
-    :content,:category_id,
-    images: [])
-    .merge(user_id: current_user.id)
+                                 :content, :category_id,
+                                 images: [])
+          .merge(user_id: current_user.id)
   end
-  
+
   def search_params
     params.require(:q).permit(:title_or_content_cont)
   end
-  
+
   def set_post
     @post = Post.find(params[:id])
   end
-  
+
   def all_rank
     @all_ranks = Post.find(Like.group(:post_id).where(created_at: Time.now.prev_month..Time.now)
                     .order('count(post_id) desc').limit(3).pluck(:post_id))
   end
-  
 end

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
@@ -14,16 +16,14 @@ class CommentsController < ApplicationController
     end
   end
 
-  def destroy
-  end
-  
+  def destroy; end
+
   private
-  
+
   def comment_params
     params.require(:comment).permit(
       :post_id,
       :comment
     ).merge(user_id: current_user.id)
   end
-  
 end

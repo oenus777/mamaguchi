@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class RelationshipsController < ApplicationController
-  before_action :authenticate_user! 
-  
+  before_action :authenticate_user!
+
   def create
     @user = User.find(params[:follow_id])
     current_user.follow(@user)

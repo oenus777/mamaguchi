@@ -1,21 +1,19 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: %i[index show edit update]
   before_action :signed_user, only: %i[index show edit update]
-  
-  def index
-    
-  end
+
+  def index; end
 
   def show
     @posts = Post.where(user_id: @user.id).page(params[:page])
     @likes = @user.like_posts.page(params[:page])
     @favorites = @user.favorite_posts.page(params[:page])
   end
-  
-  def edit
-    
-  end
-  
+
+  def edit; end
+
   def update
     if @user.update(user_params)
       flash[:notice] = "#{@user.name}さんのユーザー情報を更新しました"
@@ -23,10 +21,10 @@ class UsersController < ApplicationController
     else
       render :edit
     end
-  end 
-  
+  end
+
   private
-  
+
   def signed_user
     @user = User.find(params[:id])
   end
@@ -34,5 +32,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :image)
   end
-  
 end
