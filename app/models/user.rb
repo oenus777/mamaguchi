@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
@@ -12,32 +14,29 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable,
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         #:confirmable, 
+         #:confirmable,
          :lockable, :timeoutable
-         
+
   has_one_attached :image
-  
+
   def following_users_feeds
     following_ids = "SELECT follow_id FROM relationships
                      WHERE user_id = :user_id"
     Post.where("user_id IN (#{following_ids})", user_id: id)
   end
-  
+
   def follow(user)
     followings << user
   end
 
   def unfollow(user)
-    relationship = self.relationships.find_by(follow_id: user.id)
-    relationship.destroy if relationship
+    relationship = relationships.find_by(follow_id: user.id)
+    relationship&.destroy
   end
 
   def following?(user)
-    self.followings.include?(user)
+    followings.include?(user)
   end
-  
-  
-         
+
   validates :name, presence: true, length: { maximum: 8 }
-  
 end

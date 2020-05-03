@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DeviseHelper
   def bootstrap_alert(key)
     case key
@@ -9,5 +11,4 @@ module DeviseHelper
       'warning'
     end
   end
-
 end
