@@ -4,7 +4,7 @@ services:
     build: .
     command: /bin/sh -c "rm -f tmp/pids/sever.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     ports:
-      - "3000:3000"
+      - "8080:3000"
     restart: always
     depends_on:
       - db
@@ -12,3 +12,9 @@ services:
       - .:/webapp
   db:
     image: mysql:5.7.28
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: webapp_development
+    ports:
+      - "3306:3306"
