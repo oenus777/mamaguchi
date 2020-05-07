@@ -50,6 +50,10 @@ test:
 #
 production:
   <<: *default
-  database: webapp_production
-  username: webapp
-  password: <%= ENV['WEBAPP_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DB_DATABASE'] %>
+  adapter: mysql2
+  encoding: utf8mb4
+  charset: utf8mb4
+  host: <%= ENV['DB_HOST'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
