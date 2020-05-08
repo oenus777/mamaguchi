@@ -12,13 +12,14 @@ RUN apt-get update -qq && \
   default-mysql-client \
   yarn
 
-WORKDIR /app
+WORKDIR /webapp
 
 ADD Gemfile .
 ADD Gemfile.lock .
 RUN bundle install -j4
 
-ADD . /app
+ADD . /webapp
 
+RUN mkdir -p tmp/sockets
 
 EXPOSE 3000
