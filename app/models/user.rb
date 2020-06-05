@@ -6,10 +6,20 @@ class User < ApplicationRecord
   has_many :like_posts, through: :likes, source: :post
   has_many :favorites, dependent: :destroy
   has_many :favorite_posts, through: :favorites, source: :post
-  has_many :relationships
+  has_many :relationships, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow
-  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
+  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id', dependent: :destroy
   has_many :followers, through: :reverse_of_relationships, source: :user
+  
+  validates :name, presence: true, length: { maximum: 15 },
+                   uniqueness: { case_sensitive: true }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
+  validates :email, presence: true, length: { maximum: 255 },
+                    format: { with: VALID_EMAIL_REGEX },
+                    uniqueness: { case_sensitive: true }
+  validates_format_of :password, :with => /([0-9].*[a-zA-Z]|[a-zA-Z].*[0-9])/, :message => "は６文字以上の英数混在で入力してください。"
+  
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable,
   devise :database_authenticatable, :registerable,
@@ -38,5 +48,4 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
-  validates :name, presence: true, length: { maximum: 8 }
 end
