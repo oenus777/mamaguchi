@@ -1,5 +1,6 @@
 FactoryBot.define do
-  factory :post, class: 'Posts' do
+  factory :post do
+    id { 1 }
     title { "test" }
     content { "testtest" }
     association :user
