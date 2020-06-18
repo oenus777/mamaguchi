@@ -36,11 +36,27 @@ describe "バリデーションテスト" do
         expect(@comment.errors).to be_added(:comment,:too_long,count: 1000) 
     end
     
-    it "一人のユーザーは同記事に複数コメントが投稿できる" 
+    it "一人のユーザーは同記事に複数コメントが投稿できる"  do
+        @comment.save
+        comment2 = build(:comment,:other)
+        expect(comment2).to be_valid
+    end
     
-    it "ポストが削除されると投稿されていたコメントも全て削除される"
+    it "ポストが削除されると投稿されていたコメントも全て削除される" do
+        @comment.save
+        post = Post.find(1)
+        expect(post.comments.present?).to eq true
+        post.destroy
+        expect(post.comments.present?).to eq false
+    end
     
-    it "ユーザーが削除されると投稿しているコメントも全て削除"
+    it "ユーザーが削除されると投稿しているコメントも全て削除" do
+        @comment.save
+        user = User.find(1)
+        expect(user.comment.present?).to eq true
+        user.destroy
+        expect(user.comment.present?).to eq false
+    end
     
 end
 
