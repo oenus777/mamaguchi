@@ -1,13 +1,13 @@
 FactoryBot.define do
   factory :comment do
     id { 1 }
-    association :post,factory: :post,strategy: :build
+    association :post
     user { post.user }
     comment { "testtest" }
     
     trait :other do
       id { 2 }
-      association :post,factory: :post
+      post_id { 1 }
       user { post.user }
       comment { "hogehoge" }
     end
