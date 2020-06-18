@@ -59,12 +59,12 @@ describe "バリデーションテスト" do
     end
     
     it "イイねした投稿が削除された場合、イイねも削除される" do
-        post = create(:post)
+        @post.save
         user = User.find(1)
-        post.like(user)
-        expect(post.like?(user)).to eq true
-        post.destroy
-        expect(post.like?(user)).to eq false
+        @post.like(user)
+        expect(@post.like?(user)).to eq true
+        @post.destroy
+        expect(@post.like?(user)).to eq false
     end
     
     it "イイねしたユーザーが削除された場合、イイねも削除される" do
@@ -84,6 +84,25 @@ describe "バリデーションテスト" do
         @post.unfavorite(user)
         expect(@post.favorite?(user)).to eq false
     end
+    
+    it "お気に入りした投稿が削除された場合、お気に入りも削除される" do
+        @post.save
+        user = User.find(1)
+        @post.favorite(user)
+        expect(@post.favorite?(user)).to eq true
+        @post.destroy
+        expect(@post.favorite?(user)).to eq false
+    end
+    
+    it "お気に入りしたユーザーが削除された場合、お気に入りも削除される" do
+        @post.save
+        user = User.find(1)
+        @post.favorite(user)
+        expect(@post.favorite?(user)).to eq true
+        user.destroy
+        expect(@post.favorite?(user)).to eq false
+    end
+    
 
 end
   
