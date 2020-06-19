@@ -4,7 +4,7 @@
         <% if comment.user.image.attached? %>
         <%= image_tag comment.user.image.variant(resize: "70x70"), class: "profile_image_small my-auto" %>
         <% else %>
-        <%= image_tag 'default.jpg', class: "profile_image_small my-auto", :size => "70x70" %>
+        <%= image_pack_tag 'default.jpg', class: "profile_image_small my-auto", :size => "70x70" %>
         <% end %>
         <%= comment.user.name %>
         <% end %>

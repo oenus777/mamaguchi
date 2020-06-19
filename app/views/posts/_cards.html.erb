@@ -7,7 +7,7 @@
             <%= image_tag image.variant(resize:"300x300") , class: "card-img-top" %>
             <% end %>
             <% else %>
-            <%= image_tag 'no_image.jpg', class: "card-img-top", :width => "300"  %>
+            <%= image_pack_tag 'no_image.jpg', class: "card-img-top", :width => "300"  %>
             <% end %>
         </div>
         <div class="col-md-8">
@@ -28,7 +28,7 @@
                     <% if post.user.image.attached? %>
                     <%= image_tag post.user.image.variant(resize:"30x30"), class: "profile_image" %>
                     <% else %>
-                    <%= image_tag 'default.jpg', class: "profile_image", :size => "30x30" %>
+                    <%= image_pack_tag 'default.jpg', class: "profile_image", :size => "30x30" %>
                     <% end %>
                     <%= post.user.name %>
                     <% end %>

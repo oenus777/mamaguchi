@@ -21,7 +21,7 @@
                     <% end %>
                     <% else %>
                     <%= link_to "#", class: "nav-link dropdown-toggle", id: "navbarDropdown", role: "button", data: { toggle: "dropdown" } , aria: { haspopup: "true", expanded: "false" } do %>
-                    <%= image_tag 'default.jpg', class: "profile_image", :size => "20x20" %>
+                    <%= image_pack_tag 'default.jpg', class: "profile_image", :size => "20x20" %>
                     <%= current_user.name %>
                     <% end %>
                     <% end %>
