@@ -31,7 +31,7 @@
                 <% if @user.image.attached? %>
                 <%= image_tag @user.image, class: "profile_image_small my-4" %>
                 <% else %>
-                <%= image_tag 'default.jpg', class: "profile_image_small my-4" %>
+                <%= image_pack_tag 'default.jpg', class: "profile_image_small my-4" %>
                 <% end %>
                 <%= @user.name %>
                 <% end %>
