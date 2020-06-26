@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Webapp</title>
+    <title><%= content_for?(:title) ? yield(:title) : "" %>育児の孤独感やストレス、ママ友に疲れたり働くママたちのSNSならママぐち</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
