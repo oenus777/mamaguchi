@@ -34,6 +34,7 @@ gem 'rails_admin'
 gem 'ransack'
 gem 'rubocop', require: false
 gem 'rubocop-rails'
+gem 'meta-tags', :require => 'meta_tags'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

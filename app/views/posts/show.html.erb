@@ -1,4 +1,4 @@
-<% content_for(:title) { "#{@post.title}：" } %>
+<% set_meta_tags title: @post.title, description: @post.content %>
 <div class="container text-left mb-5">
     <%= render 'layouts/flashes' %>
     <h1 class="text-center">投稿内容</h1>
