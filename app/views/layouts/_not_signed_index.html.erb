@@ -1,7 +1,7 @@
 <div class="container text-center mb-5">
     <%= render 'layouts/flashes' %>
     <div id="main_image">
-        <img src="<%= asset_pack_path 'main_image.jpg' %>", class: "img-fluid d-block mx-auto" />
+        <%= image_pack_tag 'main_image.jpg', class: "img-fluid d-block mx-auto" %>
         <h1>人に言えない悩みや愚痴がある子育て中のママへ</h1>
     </div>
     <%= link_to '投稿する',new_user_registration_path, class:'btn btn-danger btn-lg my-4' %>
