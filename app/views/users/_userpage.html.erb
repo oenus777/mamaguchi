@@ -1,4 +1,4 @@
-<% content_for(:title) { "#{@user.name}さんのページ：" } %>
+<% set_meta_tags title: "#{@user.name}さんのユーザーページ", description: "#{@user.name}さんのユーザーページです。", noindex: true %>
 <div class="container text-center mb-5">
     <%= render 'layouts/flashes' %>
     <h1>ユーザーページ</h1>
