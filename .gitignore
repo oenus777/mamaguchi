@@ -22,11 +22,14 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-
+/config/credentials/production.key
 /config/environments/development.rb
+
 /public/packs
 /public/packs-test
 /node_modules
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+
