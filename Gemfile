@@ -36,6 +36,7 @@ gem 'rubocop', require: false
 gem 'rubocop-rails'
 gem 'meta-tags', :require => 'meta_tags'
 gem "aws-sdk-s3", require: false
+gem 'google-analytics-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
