@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+  before_action :authenticate_user!, only: %i[index]
 
 class FollowersController < ApplicationController
   def index
