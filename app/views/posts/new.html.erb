@@ -1,4 +1,4 @@
-<% set_meta_tags title: "#{@user.name}さんの新規投稿", description: "#{@user.name}さんの新規投稿画面です。", noindex: true %>
+<% set_meta_tags title: "#{current_user.name}さんの新規投稿", description: "#{current_user.name}さんの新規投稿画面です。", noindex: true %>
 <div class="container mb-5">
     <%= render "layouts/error_messages" %>
     <h1 class="text-center">新規投稿</h1>
