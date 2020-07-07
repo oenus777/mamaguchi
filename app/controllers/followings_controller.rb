@@ -1,7 +1,8 @@
 # frozen_string_literal: true
-  before_action :authenticate_user!, only: %i[index]
 
 class FollowingsController < ApplicationController
+  before_action :authenticate_user!, only: %i[index]
+    
   def index
     @user = User.find(params[:id])
     @followings = @user.followings
