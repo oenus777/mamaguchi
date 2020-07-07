@@ -1,6 +1,6 @@
 version: "3"
 services:
-  app:
+  app: &app_base
     build: .
     command: /bin/sh -c "rm -f tmp/pids/sever.pid && bundle exec puma -C config/puma.rb"
     ports:
@@ -10,8 +10,18 @@ services:
       - db
     volumes:
       - .:/webapp
+      - public-data:/webapp/public
       - tmp-data:/webapp/tmp
       - log-data:/webapp/log
+  webpacker:
+    <<: *app_base
+    command: "bundle exec bin/webpack-dev-server"
+    ports:
+      - "3035:3035"
+    volumes:
+      - public-data:/webapp/public
+    depends_on:
+      - app
   db:
     image: mysql:5.7.28
     environment:
@@ -20,6 +30,7 @@ services:
       MYSQL_DATABASE: webapp_development
     ports:
       - "3306:3306"
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
   web:
     build: ./nginx
     ports:
@@ -27,7 +38,8 @@ services:
     volumes:
       - tmp-data:/webapp/tmp
     depends_on:
-      - app
+      - webpacker
 volumes:
+  public-data:
   tmp-data:
   log-data:
