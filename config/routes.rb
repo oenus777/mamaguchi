@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'categories/show'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controller: {
-    registrations: 'users/registrations',
+    registrations: 'registrations',
     sessions: 'users/sessions'
   }
 
@@ -20,6 +19,7 @@ Rails.application.routes.draw do
   get  '/users/:id/followers' => 'followers#index', as: 'followers'
   get  '/users/:id/followings' => 'followings#index', as: 'followings'
   get  '/posts/category/:id' => 'categories#show', as: 'category'
+  get 'categories/show'
   resources :users, only: %i[show edit update]
   resources :posts
   resources :likes, only: %i[create destroy]

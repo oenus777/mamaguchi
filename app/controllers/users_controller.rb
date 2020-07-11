@@ -2,7 +2,8 @@
 
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: %i[index show edit update]
-  before_action :signed_user, only: %i[index show edit update]
+  before_action :signed_user, only: %i[index show]
+  before_action :correct_user, only: %i[edit update]
 
   def index; end
 
@@ -31,5 +32,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :image)
+  end
+  
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to root_path, alert: "アクセスできません" unless current_user == @user
   end
 end

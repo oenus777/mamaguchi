@@ -36,6 +36,9 @@ RSpec.configure do |config|
   
   # クラス名の指定を省略
   config.include FactoryBot::Syntax::Methods
+  
+  # sign_inヘルパーを使用可能
+  config.include Devise::Test::IntegrationHelpers, type: :request
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
