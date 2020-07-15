@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class CategoriesController < ApplicationController
+  before_action :authenticate_user!, only: %i[show]
+  
   def show
     @posts = Post.where(category_id: params[:id]).page(params[:page])
     @categories = Category.all
