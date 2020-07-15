@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create destroy]
+  before_action :authenticate_user!, only: %i[index new create edit update destroy search]
+  before_action :correct_user, only: %i[edit update destroy]
   before_action :set_post, only: %i[show edit update destroy]
   before_action :all_rank, only: %i[index show]
 
@@ -28,7 +29,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       flash[:notice] = "#{@post.title}を新規投稿しました"
-      redirect_to current_user
+      redirect_to post_path(@post)
     else
       flash[:alert] = "#{@post.title}を投稿できませんでした"
       render :new
@@ -40,7 +41,7 @@ class PostsController < ApplicationController
   def update
     @post.update(post_params)
     flash[:notice] = "#{@post.title}の編集が完了しました"
-    redirect_to root_path
+    redirect_to post_path(@post)
   end
 
   def destroy
@@ -54,7 +55,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    @q = Post.search(search_params)
+    @q = Post.ransack(search_params)
     @posts = @q.result.with_attached_images.page(params[:page])
   end
 
@@ -78,5 +79,10 @@ class PostsController < ApplicationController
   def all_rank
     @all_ranks = Post.find(Like.group(:post_id).where(created_at: Time.now.prev_month..Time.now)
                     .order('count(post_id) desc').limit(3).pluck(:post_id))
+  end
+  
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to root_path, alert: "アクセスできません" unless current_user == @user
   end
 end
