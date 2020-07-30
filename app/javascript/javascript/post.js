@@ -27,7 +27,6 @@ $(document).on('turbolinks:load', function(){
                                         <img src='${e.target.result}' title='${file.name}' style="width:150px; height:150px;" >
                                       </figure>
                                       <div class="upload-buttons">
-                                        <a class="btn btn-link">編集</a>
                                         <a class="preview-delete btn btn-link" data-image-id="${labelLength}">削除</a>
                                       </div>
                                     </li>`);
