@@ -8,11 +8,11 @@
         <%= f.label :image,class: 'list' %><br />
         <% if @user.image.attached? %>
         <%= f.label :image,class: 'preview' do %>
-        <%= image_tag @user.image, class: "profile_image edit my-4" %>
+        <%= image_tag @user.image.variant(resize:"200x200"), class: "profile_image edit my-4" %>
         <% end %>
         <% else %>
         <%= f.label :image,class: 'preview' do %>
-        <%= image_pack_tag 'default.jpg', class: "profile_image edit my-4" %>
+        <%= image_pack_tag 'default.jpg', class: "profile_image edit my-4", :size => "200x200" %>
         <% end %>
         <% end %>
     　　<%= f.file_field :image %>

@@ -18,7 +18,7 @@ ja:
         current_sign_in_at: 現在のログイン時刻
         current_sign_in_ip: 現在のログインIPアドレス
         name: ユーザーネーム
-        update_name: ユーザーネーム(8文字以内)
+        update_name: ユーザーネーム(15文字以内)
         email: Eメール
         image: プロフィール画像
         encrypted_password: 暗号化パスワード
