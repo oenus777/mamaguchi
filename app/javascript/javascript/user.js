@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function(){
-  $('.edit_user').on('change', 'input[type="file"]', function(e) {
+  $('.edit').on('change', 'input[type="file"]', function(e) {
     const file = e.target.files[0],
         reader = new FileReader(),
         $preview = $(".preview");
