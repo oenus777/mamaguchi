@@ -6,14 +6,16 @@
         <div class="container-box mx-auto px-5 col-md-8">
             <div class="content">
                 <h2 class="my-4"><%= @post.title %></h2>
-                <%= link_to category_path(@post.category.id) do %>
+                
                 <h3>
+                <%= link_to category_path(@post.category.id) do %>
                 <%= content_tag :i, "", class: "fas fa-tag", style: "color:lightgrey;" %>
                 <%= content_tag :span, "#{@post.category.name}", class: "text-muted" %>
+                <% end %>
                 <%= content_tag :i, "", class: "far fa-clock ml-2", style: "color:lightgrey;" %>
                 <%= content_tag :span, "#{@post.created_at.strftime('%Y/%m/%d %H:%M')}", class: "text-muted" %>
                 </h3>
-                <% end %>
+                
                 <% @post.images.each do |image|%>
                 <%= image_tag image.variant(resize: "150x150"),class: "ml-3" %>
                 <% end %>

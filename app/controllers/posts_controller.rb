@@ -2,8 +2,8 @@
 
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[index new create edit update destroy search]
-  before_action :correct_user, only: %i[edit update destroy]
   before_action :set_post, only: %i[show edit update destroy]
+  before_action :correct_user, only: %i[edit update destroy]
   before_action :all_rank, only: %i[index show]
 
   def index
@@ -82,7 +82,6 @@ class PostsController < ApplicationController
   end
   
   def correct_user
-    @user = User.find(params[:id])
-    redirect_to root_path, alert: "アクセスできません" unless current_user == @user
+    redirect_to root_path, alert: "アクセスできません" unless current_user == @post.user
   end
 end

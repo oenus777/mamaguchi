@@ -1,0 +1,47 @@
+
+<div class="card my-2 mx-auto" style="max-width:820px;">
+    <div class="row no-gutters">
+        <div class="col-md-4 my-auto py-auto">
+            <% if post.images.attached? %>
+            <% post.images.first(1).each do |image| %>
+            <%= image_tag image.variant(resize:"300x300") , class: "card-img-top" %>
+            <% end %>
+            <% else %>
+            <%= image_pack_tag 'no_image.jpg', class: "card-img-top", :width => "300"  %>
+            <% end %>
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <%= link_to post_path(post) do %>
+                <h3 class="card-title text-left"><%= post.title %></h3>
+                <p class="card-text text-left"><%= post.content %></p>
+                <% end %>
+                <p class="text-left mt-2">
+                <%= content_tag :i, "", class: "far fa-clock", style: "color:lightgrey;" %>
+                <%= content_tag :span, "#{post.created_at.strftime('%Y/%m/%d %H:%M')}", class: "text-muted" %>
+                <%= content_tag :i, "", class: "fas fa-tag ml-2", style: "color:lightgrey;" %>
+                <%= content_tag :span, "#{post.category.name}", class: "text-muted" %>
+                </p>
+                <div class="user-info py-2 text-left">
+                    <% if user_signed_in? %>
+                    <%= link_to user_path(post.user) do %>
+                    <% if post.user.image.attached? %>
+                    <%= image_tag post.user.image.variant(resize:"30x30"), class: "profile_image" %>
+                    <% else %>
+                    <%= image_pack_tag 'default.jpg', class: "profile_image", :size => "30x30" %>
+                    <% end %>
+                    <%= post.user.name %>
+                    <% end %>
+                    <% end %>
+                    
+                    <div class="button-info">
+                        <%= content_tag :i, "", class: "fas fa-heart" %>
+                        <%= content_tag :span, "#{post.likes_count}", class: "mr-2" %>
+                        <%= content_tag :i, "", class: "far fa-comment" %>
+                        <%= content_tag :span, "#{post.comments.count}", class: nil %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
