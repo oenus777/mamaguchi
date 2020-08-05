@@ -1,6 +1,7 @@
 $main-color: #eb616c;
 
 body {
+    font-family: 'Kosugi Maru', sans-serif;
     background-color:#faf3ea;
     padding-top:90px;
     #wrapper {
@@ -27,7 +28,6 @@ body {
 }
 
 .container {
-    font-family:Meiryo;
     border-radius:4px;
     h2 {
         width:100%;
@@ -35,7 +35,6 @@ body {
     }
     h1 {
         font-size:20px;
-        font-family:Meiryo;
         color:grey;
     }
 }
@@ -48,7 +47,6 @@ body {
     box-shadow:1px 1px 1px #ccc;
     font-weight:700;
     .navbar-brand {
-        font-family:Meiryo;
         font-weight:900;
         font-size:xx-large;
     }
