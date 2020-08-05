@@ -1,8 +1,8 @@
 <% set_meta_tags title: "#{current_user.name}さんの新規投稿", description: "#{current_user.name}さんの新規投稿画面です。", noindex: true %>
 <div class="container mb-5">
-    <%= render "layouts/error_messages" %>
     <h1 class="text-center">新規投稿</h1>
     <div class="container-box mx-auto">
+        <%= render "layouts/error_messages" %>
         <%= form_for(@post) do |f| %>
         <div class="field mt-4">
           <%= f.label :images,class: 'list',style: "margin-left:45px;" %><br />
