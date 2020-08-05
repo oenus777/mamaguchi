@@ -3,6 +3,11 @@ $main-color: #eb616c;
 body {
     background-color:#faf3ea;
     padding-top:90px;
+    #wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
 }
 
 #main_image {
