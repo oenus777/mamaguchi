@@ -1,6 +1,6 @@
 <% set_meta_tags title: "新規登録", description: "新規登録画面です。" %>
 <div class="container text-center mb-5 container-box">
-  <h1 class="my-5 mx-auto pb-2">新規ユーザー登録</h1>
+  <h1 class="my-3 mx-auto pb-2 heading" style="color:white;"><%= content_tag :i, "", class: "fas fa-cheese mr-2", style: "color:white;" %>新規ユーザー登録</h1>
   <%= render "devise/shared/error_messages", resource: resource %>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   
