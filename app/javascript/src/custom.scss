@@ -1,4 +1,5 @@
 $main-color: #eb616c;
+$sub-color: #d0525c;
 
 body {
     font-family: 'Kosugi Maru', sans-serif;
@@ -9,6 +10,11 @@ body {
         flex-direction: column;
         min-height: 100vh;
     }
+}
+
+.navbar-brand {
+    font-size:34px;
+    font-weight:bold;
 }
 
 #main_image {
@@ -30,7 +36,6 @@ body {
 .container {
     border-radius:4px;
     h2 {
-        width:100%;
         font-size:22px;
     }
     h1 {
@@ -39,25 +44,28 @@ body {
     }
 }
 
-.alert {
-    width:50%;
+.heading {
+    color:white;
+    background-color:$main-color;
+    border-radius:10px;
+    border-bottom:3px solid $sub-color;
+    padding:10px;
+    display:inline-block;
 }
-
-.navbar {
-    box-shadow:1px 1px 1px #ccc;
-    font-weight:700;
-    .navbar-brand {
-        font-weight:900;
-        font-size:xx-large;
-    }
-}
-
 .lead {
     font-size:16px;
 }
 
-.rule {
-    font-size:24px;
+#rule_area {
+    ul {
+        li {
+            span {
+                font-size:20px;
+                border-bottom:2px solid $main-color ;
+                display:inline-block;
+            }
+        }
+    }
 }
 
 .list {
@@ -71,7 +79,7 @@ body {
 }
 
 .list:before {
-  content: "♪";
+  content: "◇";
   display: inline-block;
   line-height: 40px;
   position: absolute;
@@ -100,10 +108,6 @@ body {
     padding-bottom:50px;
     box-shadow:1px 1px 2px;
     background-color:white;
-    h1 {
-        width:50%;
-        border-bottom:3px solid $main-color;
-    }
 }
 
 .content {
@@ -269,7 +273,8 @@ body {
         #comment_area {
             flex-grow:4;
             flex-basis:60%;
-            word-break: break-all;
+            word-break: 
+            break-all;
         }
     }
 }
