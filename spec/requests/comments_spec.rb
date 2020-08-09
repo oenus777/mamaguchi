@@ -10,7 +10,7 @@ RSpec.describe 'Comment', type: :request do
                 params = {
                     comment: {
                         post_id: 1,
-                        comment: "a"*255
+                        comment: "a"*1000
                     }
                 }
                 expect do
@@ -19,12 +19,12 @@ RSpec.describe 'Comment', type: :request do
                 expect(response).to have_http_status 302
                 expect(response).to redirect_to post_path(post1)
             end
-            it '１０００文字以上だとリクエスト不成功' do
+            it '１００１文字以上だとリクエスト不成功' do
                 sign_in(post1.user)
                 params = {
                     comment: {
                         post_id: 1,
-                        comment: "a"*256
+                        comment: "a"*1001
                     }
                 }
                 expect do
