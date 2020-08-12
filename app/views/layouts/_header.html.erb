@@ -16,7 +16,7 @@
                 <li class="nav-item dropdown">
                     <% if current_user.image.attached? %>
                     <%= link_to "#", class: "nav-link dropdown-toggle", id: "navbarDropdown", role: "button", data: { toggle: "dropdown" } , aria: { haspopup: "true", expanded: "false" } do %>
-                    <%= image_tag current_user.image.variant(resize:"20x20"), class: "profile_image" %>
+                    <%= image_tag current_user.image.variant(resize_to_fill: [20, 20]), class: "profile_image" %>
                     <%= current_user.name %>
                     <% end %>
                     <% else %>

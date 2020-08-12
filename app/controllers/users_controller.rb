@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: %i[index show edit update]
-  before_action :signed_user, only: %i[index show]
+  before_action :signed_user, only: %i[index show edit update]
   before_action :correct_user, only: %i[edit update]
 
   def index; end
@@ -20,6 +20,7 @@ class UsersController < ApplicationController
       flash[:notice] = "#{@user.name}さんのユーザー情報を更新しました"
       redirect_to @user
     else
+      flash[:alert] = "ユーザー情報更新に失敗しました"
       render :edit
     end
   end
@@ -35,7 +36,8 @@ class UsersController < ApplicationController
   end
   
   def correct_user
-    @user = User.find(params[:id])
-    redirect_to root_path, alert: "アクセスできません" unless current_user == @user
+    @user1 = User.find(params[:id])
+    redirect_to root_path, alert: "リクエストが失敗しました。" unless current_user == @user1
   end
+  
 end

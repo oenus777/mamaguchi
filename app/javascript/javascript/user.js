@@ -1,8 +1,9 @@
 $(document).on('turbolinks:load', function(){
-  $('.edit').on('change', 'input[type="file"]', function(e) {
-    const file = e.target.files[0],
+  $(document).on('change', 'input[type="file"]', function(e) {
+    var file = e.target.files[0],
         reader = new FileReader(),
         $preview = $(".preview");
+        t = this;
 
     if(file.type.indexOf("image") < 0){
       return false;
@@ -14,7 +15,9 @@ $(document).on('turbolinks:load', function(){
         $preview.append($('<img>').attr({
           src: e.target.result,
           class: "profile_image edit my-4",
-          title: file.name
+          title: file.name,
+          width: "200px",
+          height: "200px"
         }));
       };
     })(file);

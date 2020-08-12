@@ -18,7 +18,8 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: true }
-  validates_format_of :password, :with => /([0-9].*[a-zA-Z]|[a-zA-Z].*[0-9])/, :message => "は６文字以上の英数混在で入力してください。"
+  validates_format_of :password, :with => /([0-9].*[a-zA-Z]|[a-zA-Z].*[0-9])/, on: :create,
+  :message => "は６文字以上の英数混在で入力してください。"
   
   
   # Include default devise modules. Others available are:
