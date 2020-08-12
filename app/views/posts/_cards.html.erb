@@ -4,7 +4,7 @@
         <div class="col-md-4 my-auto py-auto">
             <% if post.images.attached? %>
             <% post.images.first(1).each do |image| %>
-            <%= image_tag image.variant(resize:"300x300") , class: "card-img-top" %>
+            <%= image_tag image.variant(resize_to_fill: [300, 300]) , class: "card-img-top" %>
             <% end %>
             <% else %>
             <%= image_pack_tag 'no_image.jpg', class: "card-img-top", :width => "300"  %>
@@ -26,7 +26,7 @@
                     <% if user_signed_in? %>
                     <%= link_to user_path(post.user) do %>
                     <% if post.user.image.attached? %>
-                    <%= image_tag post.user.image.variant(resize:"30x30"), class: "profile_image" %>
+                    <%= image_tag post.user.image.variant(resize_to_fill: [30, 30]), class: "profile_image" %>
                     <% else %>
                     <%= image_pack_tag 'default.jpg', class: "profile_image", :size => "30x30" %>
                     <% end %>

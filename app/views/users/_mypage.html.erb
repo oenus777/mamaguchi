@@ -4,7 +4,7 @@
     <h1>マイページ</h1>
     <div class="container-box mx-auto">
         <% if @user.image.attached? %>
-        <%= image_tag @user.image.variant(resize:"200x200"), class: "profile_image my-4" %>
+        <%= image_tag @user.image.variant(resize_to_fill: [200, 200] ), class: "profile_image my-4" %>
         <% else %>
         <%= image_pack_tag 'default.jpg', class: "profile_image my-4", :size => "200x200" %>
         <% end %>
