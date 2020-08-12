@@ -6,3 +6,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# coding: utf-8
+
+Category.create(:id => 1,:name => "育児")
+Category.create(:id => 2,:name => "旦那")
+Category.create(:id => 3,:name => "両親")
+Category.create(:id => 4,:name => "義父母")
+Category.create(:id => 5,:name => "ママ友")
+Category.create(:id => 6,:name => "友達")
+Category.create(:id => 7,:name => "ご近所関係")
+Category.create(:id => 8,:name => "学校関係")
+Category.create(:id => 9,:name => "教育")
+Category.create(:id => 10,:name => "お金")
+Category.create(:id => 11,:name => "感情面")
+Category.create(:id => 12,:name => "ワンオペ")
+Category.create(:id => 13,:name => "子供の体調")
+Category.create(:id => 14,:name => "仕事")
+Category.create(:id => 15,:name => "その他")
