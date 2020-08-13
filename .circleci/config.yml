@@ -33,7 +33,7 @@ jobs: # 一連のステップ
 
       - run: # Ruby の依存関係をインストールします
           name: バンドル インストール
-          command: bundle check --path vendor/bundle || bundle install --deployment
+          command: gem install bundler || bundle check --path vendor/bundle || bundle install --deployment
 
       # Ruby の依存関係のバンドル キャッシュを保存します
 
