@@ -8,7 +8,6 @@ jobs: # 一連のステップ
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
           BUNDLE_PATH: vendor/bundle
-          BUNDLER_VERSION: 1.17.4
           RAILS_ENV: test
       - image: circleci/mysql:5.7.28 # データベース イメージ
         environment: # データベースの環境変数
