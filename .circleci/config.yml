@@ -1,15 +1,84 @@
-version: 2.1
-orbs:
-  ruby: circleci/ruby@0.1.2 
+version: 2 # CircleCI 2.0 を使用します
+jobs: # 一連のステップ
+  build: # ワークフローを使用しない実行では、エントリポイントとして `build` ジョブが必要です
+    parallelism: 3 # このジョブのインスタンスを 3 つ並列実行します
+    docker: # Docker でステップを実行します
+      - image: circleci/ruby:2.6.3-node-browsers # このイメージをすべての `steps` が実行されるプライマリ コンテナとして使用します
+        environment: # プライマリ コンテナの環境変数
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+          RAILS_ENV: test
+      - image: circleci/mysql:5.7.28 # データベース イメージ
+        environment: # データベースの環境変数
+          MYSQL_DATABASE: webapp_test
+          MYSQL_USER: root
+          MYSQL_PASSWORD: 
+    steps: # 実行可能コマンドの集合
+      - checkout # ソース コードを作業ディレクトリにチェックアウトする特別なステップ
 
-jobs:
-  build:
-    docker:
-      - image: circleci/ruby:2.6.3-stretch-node
-    executor: ruby/default
-    steps:
-      - checkout
+      # Bundler のバージョンを指定します
+
       - run:
-          name: Which bundler?
+          name: Bundler の指定
           command: bundle -v
-      - ruby/bundle-install
+
+      # バンドル キャッシュを復元します
+      # 依存関係キャッシュについては https://circleci.com/ja/docs/2.0/caching/ をお読みください
+
+      - restore_cache:
+          keys:
+            - rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+            - rails-demo-bundle-v2-
+
+      - run: # Ruby の依存関係をインストールします
+          name: バンドル インストール
+          command: bundle check --path vendor/bundle || bundle install --deployment
+
+      # Ruby の依存関係のバンドル キャッシュを保存します
+
+      - save_cache:
+          key: rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      # アプリケーションで Webpacker または Yarn を他の何らかの方法で使用する場合にのみ必要です
+
+      - restore_cache:
+          keys:
+            - rails-demo-yarn-{{ checksum "yarn.lock" }}
+            - rails-demo-yarn-
+
+      - run:
+          name: Yarn のインストール
+          command: yarn install --cache-folder ~/.cache/yarn
+
+      # Yarn または Webpacker のキャッシュを保存します
+
+      - save_cache:
+          key: rails-demo-yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+
+      - run:
+          name: DB の待機
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      - run:
+          name: データベースのセットアップ
+          command: bin/rails db:schema:load --trace
+
+      - run:
+          name: RSpec の並列実行
+          command: |
+            bundle exec rspec --profile 10 \
+                              --format RspecJunitFormatter \
+                              --out test_results/rspec.xml \
+                              --format progress \
+                              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+
+      # タイミング解析のテスト結果を保存します
+
+      - store_test_results: # テスト サマリー (https://circleci.com/ja/docs/2.0/collect-test-data/) に表示するテスト結果をアップロードします
+          path: test_results
+      # デプロイの構成例については https://circleci.com/ja/docs/2.0/deployment-integrations/ を参照してください
