@@ -33,9 +33,9 @@ jobs: # 一連のステップ
       - run: # Ruby の依存関係をインストールします
           name: バンドル インストール
           command: |
-          gem install bundler
-          bundle check --path vendor/bundle
-          bundle install --deployment
+            gem install bundler
+            bundle check --path vendor/bundle
+            bundle install --deployment
 
       # Ruby の依存関係のバンドル キャッシュを保存します
 
@@ -69,9 +69,9 @@ jobs: # 一連のステップ
       - run:
           name: データベースのセットアップ
           command: |
-          mv config/database.yml.ci config/database.yml
-          bundle exec rake db:create
-          bundle exec rake db:schema:load
+            mv config/database.yml.ci config/database.yml
+            bundle exec rake db:create
+            bundle exec rake db:schema:load
 
       - run:
           name: RSpec の並列実行
