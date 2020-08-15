@@ -19,8 +19,10 @@ jobs: # 一連のステップ
       # Bundler のバージョンを指定します
 
       - run:
-          name: Bundler の指定
-          command: bundle -v
+          name: Bundler Install
+          command: |
+            gem install bundler
+            bundle -v
 
       # バンドル キャッシュを復元します
       # 依存関係キャッシュについては https://circleci.com/ja/docs/2.0/caching/ をお読みください
