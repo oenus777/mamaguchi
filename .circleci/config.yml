@@ -8,21 +8,21 @@ jobs: # 一連のステップ
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
           BUNDLE_PATH: vendor/bundle
-          BUNDLER_VERSION: 1.17.4
           RAILS_ENV: test
       - image: circleci/mysql:5.7.28 # データベース イメージ
         environment: # データベースの環境変数
-          MYSQL_DATABASE: webapp_test
-          MYSQL_USER: root
-          MYSQL_PASSWORD: 
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+          MYSQL_ROOT_HOST: '%'
     steps: # 実行可能コマンドの集合
       - checkout # ソース コードを作業ディレクトリにチェックアウトする特別なステップ
 
       # Bundler のバージョンを指定します
 
       - run:
-          name: Bundler の指定
-          command: bundle -v
+          name: Bundler Version
+          command: |
+            gem install bundler
+            bundle -v
 
       # バンドル キャッシュを復元します
       # 依存関係キャッシュについては https://circleci.com/ja/docs/2.0/caching/ をお読みください
@@ -34,7 +34,7 @@ jobs: # 一連のステップ
 
       - run: # Ruby の依存関係をインストールします
           name: バンドル インストール
-          command: bundle check --path vendor/bundle || bundle install --deployment
+          command: bundle install --deployment
 
       # Ruby の依存関係のバンドル キャッシュを保存します
 
@@ -63,11 +63,14 @@ jobs: # 一連のステップ
 
       - run:
           name: DB の待機
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+          command: dockerize -wait tcp://localhost:3306 -timeout 1m
 
       - run:
           name: データベースのセットアップ
-          command: bin/rails db:schema:load --trace
+          command: |
+            mv config/database.yml.ci config/database.yml
+            bundle exec rake db:create
+            bundle exec rake db:schema:load
 
       - run:
           name: RSpec の並列実行
