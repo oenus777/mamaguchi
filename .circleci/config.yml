@@ -20,7 +20,9 @@ jobs: # 一連のステップ
 
       - run:
           name: Bundler Version
-          command: bundle -v
+          command: |
+            gem install bundler
+            bundle -v
 
       # バンドル キャッシュを復元します
       # 依存関係キャッシュについては https://circleci.com/ja/docs/2.0/caching/ をお読みください
@@ -32,9 +34,7 @@ jobs: # 一連のステップ
 
       - run: # Ruby の依存関係をインストールします
           name: バンドル インストール
-          command: |
-            gem install bundler
-            bundle install --deployment
+          command: bundle install --deployment
 
       # Ruby の依存関係のバンドル キャッシュを保存します
 
