@@ -33,7 +33,6 @@ jobs: # 一連のステップ
       - run: # Ruby の依存関係をインストールします
           name: バンドル インストール
           command: |
-            gem install bundler
             bundle check --path vendor/bundle
             bundle install --deployment
 
