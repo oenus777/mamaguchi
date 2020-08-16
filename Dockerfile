@@ -20,6 +20,7 @@ WORKDIR /webapp
 
 ADD Gemfile .
 ADD Gemfile.lock .
+RUN bundle update --bundler
 RUN bundle install -j4
 
 ADD . /webapp

@@ -38,6 +38,7 @@ gem 'meta-tags', :require => 'meta_tags'
 gem "aws-sdk-s3", require: false
 gem 'google-analytics-rails'
 gem 'image_processing', '~> 1.2'
+gem 'config'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

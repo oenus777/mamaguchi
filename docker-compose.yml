@@ -7,7 +7,7 @@ services:
       - "3000:3000"
     restart: always
     depends_on:
-      - db
+      - webpacker
     volumes:
       - .:/webapp
       - public-data:/webapp/public
@@ -21,7 +21,7 @@ services:
     volumes:
       - public-data:/webapp/public
     depends_on:
-      - app
+      - db
   db:
     image: mysql:5.7.28
     environment:
@@ -38,7 +38,7 @@ services:
     volumes:
       - tmp-data:/webapp/tmp
     depends_on:
-      - webpacker
+      - app
 volumes:
   public-data:
   tmp-data:
