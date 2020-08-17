@@ -30,9 +30,9 @@ RSpec.feature 'Registration', type: :system do
         #新規登録ボタンをクリック
         click_button '新規登録'
         
-        #マイページへリダイレクト
-        expect(page).to have_content 'マイページ'
-        expect(page).to have_content 'アカウント登録が完了しました。'
+        #トップページへリダイレクト
+        expect(page).to have_content '人に言えない悩みや愚痴がある子育て中のママへ'
+        expect(page).to have_content '本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。'
     end
     
     scenario 'ユーザーネームがブランクの場合' do

@@ -131,7 +131,7 @@ RSpec.describe 'Users', type: :request do
           }
         }
         post user_registration_path, params: params
-        expect(response).to redirect_to user_path(3)
+        expect(response).to redirect_to root_path
       end
     end
   end
