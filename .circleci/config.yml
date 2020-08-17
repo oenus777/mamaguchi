@@ -4,7 +4,6 @@ orbs:
   aws-ecs: circleci/aws-ecs@1.1.0
 jobs: # 一連のステップ
   build: # ワークフローを使用しない実行では、エントリポイントとして `build` ジョブが必要です
-    parallelism: 3 # このジョブのインスタンスを 3 つ並列実行します
     docker: # Docker でステップを実行します
       - image: circleci/ruby:2.6.3-node-browsers # このイメージをすべての `steps` が実行されるプライマリ コンテナとして使用します
         environment: # プライマリ コンテナの環境変数
@@ -111,7 +110,7 @@ workflows:
           family: 'mamaguchi-task' # ECSのタスク定義名
           cluster-name: '${ECS_ARN}'  #ECSのクラスターのARN
           service-name: 'mamaguchi'  #サービス名
-          container-image-name-updates: "container=webapp_web,tag=${CIRCLE_SHA1}"
+          container-image-name-updates: "container=nginx,tag=${CIRCLE_SHA1}"
   # Railsのデプロイ
   rails-deploy:
     jobs:
@@ -133,7 +132,4 @@ workflows:
           family: 'mamaguchi-task' # ECSのタスク定義名
           cluster-name: '${ECS_ARN}' #ECSのクラスターのARN
           service-name: 'mamaguchi' #サービス名
-          container-image-name-updates: "container=webapp_app,tag=${CIRCLE_SHA1}"
-
-
-#AWS_ECR_ACCOUNT_URL => ${アカウントID}.dkr.ecr.${リージョン}.amazonaws.com
+          container-image-name-updates: "container=rails,tag=${CIRCLE_SHA1}"
