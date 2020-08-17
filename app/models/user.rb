@@ -26,8 +26,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable,
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         #:confirmable,
-         :lockable, :timeoutable
+         :confirmable,:lockable, :timeoutable
 
   has_one_attached :image
 
