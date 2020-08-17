@@ -5,6 +5,7 @@ FactoryBot.define do
     email { "test@test.com" }
     password { "password3" }
     password_confirmation { "password3" }
+    confirmed_at { Time.now }
     
     trait :other do
       id { 2 }
