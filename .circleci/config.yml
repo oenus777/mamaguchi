@@ -90,31 +90,10 @@ jobs: # 一連のステップ
           path: test_results
       # デプロイの構成例については https://circleci.com/ja/docs/2.0/deployment-integrations/ を参照してください
 workflows:
-  # Nginxのデプロイ
-  nginx-deploy:
-    jobs:
-      - aws-ecr/build-and-push-image:
-          account-url: AWS_ECR_ACCOUNT_URL
-          region: AWS_REGION
-          aws-access-key-id: AWS_ACCESS_KEY_ID
-          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
-          create-repo: true
-          dockerfile: ./nginx/Dockerfile
-          repo: webapp_web
-          tag: "${CIRCLE_SHA1}"
-          filters:
-            branches:
-              only: master
-      - aws-ecs/deploy-service-update:
-          requires:
-            - aws-ecr/build-and-push-image
-          family: 'mamaguchi-task' # ECSのタスク定義名
-          cluster-name: '${ECS_ARN}'  #ECSのクラスターのARN
-          service-name: 'mamaguchi'  #サービス名
-          container-image-name-updates: "container=webapp_web,tag=${CIRCLE_SHA1}"
   # Railsのデプロイ
   rails-deploy:
     jobs:
+      - build
       - aws-ecr/build-and-push-image:
           account-url: AWS_ECR_ACCOUNT_URL
           region: AWS_REGION
@@ -133,7 +112,4 @@ workflows:
           family: 'mamaguchi-task' # ECSのタスク定義名
           cluster-name: '${ECS_ARN}' #ECSのクラスターのARN
           service-name: 'mamaguchi' #サービス名
-          container-image-name-updates: "container=webapp_app,tag=${CIRCLE_SHA1}"
-
-
-#AWS_ECR_ACCOUNT_URL => ${アカウントID}.dkr.ecr.${リージョン}.amazonaws.com
+          container-image-name-updates: "container=rails,tag=${CIRCLE_SHA1}"
