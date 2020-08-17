@@ -4,6 +4,7 @@ orbs:
   aws-ecs: circleci/aws-ecs@1.1.0
 jobs: # 一連のステップ
   build: # ワークフローを使用しない実行では、エントリポイントとして `build` ジョブが必要です
+    parallelism: 3 # このジョブのインスタンスを 3 つ並列実行します
     docker: # Docker でステップを実行します
       - image: circleci/ruby:2.6.3-node-browsers # このイメージをすべての `steps` が実行されるプライマリ コンテナとして使用します
         environment: # プライマリ コンテナの環境変数
@@ -89,31 +90,10 @@ jobs: # 一連のステップ
           path: test_results
       # デプロイの構成例については https://circleci.com/ja/docs/2.0/deployment-integrations/ を参照してください
 workflows:
-  # Nginxのデプロイ
-  nginx-deploy:
-    jobs:
-      - aws-ecr/build-and-push-image:
-          account-url: AWS_ECR_ACCOUNT_URL
-          region: AWS_REGION
-          aws-access-key-id: AWS_ACCESS_KEY_ID
-          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
-          create-repo: true
-          dockerfile: ./nginx/Dockerfile
-          repo: webapp_web
-          tag: "${CIRCLE_SHA1}"
-          filters:
-            branches:
-              only: master
-      - aws-ecs/deploy-service-update:
-          requires:
-            - aws-ecr/build-and-push-image
-          family: 'mamaguchi-task' # ECSのタスク定義名
-          cluster-name: '${ECS_ARN}'  #ECSのクラスターのARN
-          service-name: 'mamaguchi'  #サービス名
-          container-image-name-updates: "container=nginx,tag=${CIRCLE_SHA1}"
   # Railsのデプロイ
   rails-deploy:
     jobs:
+      - build
       - aws-ecr/build-and-push-image:
           account-url: AWS_ECR_ACCOUNT_URL
           region: AWS_REGION
