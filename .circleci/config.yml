@@ -2,10 +2,10 @@ version: 2.1 # CircleCI 2.1 を使用します
 orbs:
   aws-ecr: circleci/aws-ecr@6.8.1
   aws-ecs: circleci/aws-ecs@1.1.0
-jobs: # 一連のステップ
-  build: # ワークフローを使用しない実行では、エントリポイントとして `build` ジョブが必要です
+jobs:
+  build:
     parallelism: 3 # このジョブのインスタンスを 3 つ並列実行します
-    docker: # Docker でステップを実行します
+    docker:
       - image: circleci/ruby:2.6.3-node-browsers # このイメージをすべての `steps` が実行されるプライマリ コンテナとして使用します
         environment: # プライマリ コンテナの環境変数
           BUNDLE_JOBS: 3
