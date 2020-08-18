@@ -6,18 +6,18 @@ jobs:
   build:
     parallelism: 3 # このジョブのインスタンスを 3 つ並列実行します
     docker:
-      - image: circleci/ruby:2.6.3-node-browsers # このイメージをすべての `steps` が実行されるプライマリ コンテナとして使用します
-        environment: # プライマリ コンテナの環境変数
+      - image: circleci/ruby:2.6.3-node-browsers
+        environment:
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
           BUNDLE_PATH: vendor/bundle
           RAILS_ENV: test
-      - image: circleci/mysql:5.7.28 # データベース イメージ
+      - image: circleci/mysql:5.7.28
         environment: # データベースの環境変数
           MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           MYSQL_ROOT_HOST: '%'
-    steps: # 実行可能コマンドの集合
-      - checkout # ソース コードを作業ディレクトリにチェックアウトする特別なステップ
+    steps:
+      - checkout
 
       # Bundler のバージョンを指定します
 
@@ -28,7 +28,6 @@ jobs:
             bundle -v
 
       # バンドル キャッシュを復元します
-      # 依存関係キャッシュについては https://circleci.com/ja/docs/2.0/caching/ をお読みください
 
       - restore_cache:
           keys:
@@ -37,7 +36,7 @@ jobs:
 
       - run: # Ruby の依存関係をインストールします
           name: バンドル インストール
-          command: bundle install --deployment
+          command: bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       # Ruby の依存関係のバンドル キャッシュを保存します
 
@@ -112,7 +111,7 @@ workflows:
           family: 'mamaguchi-task' # ECSのタスク定義名
           cluster-name: '${ECS_ARN}' #ECSのクラスターのARN
           service-name: 'mamaguchi' #サービス名
-          container-image-name-updates: "container=webapp_app,tag=${CIRCLE_SHA1}"
+          container-image-name-updates: "container=rails,tag=${CIRCLE_SHA1}"
 
 
 #AWS_ECR_ACCOUNT_URL => ${アカウントID}.dkr.ecr.${リージョン}.amazonaws.com
