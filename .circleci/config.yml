@@ -109,6 +109,6 @@ workflows:
           requires:
             - aws-ecr/build-and-push-image
           family: 'mamaguchi-task' # ECSのタスク定義名
-          cluster-name: '${ECS_ARN}' #ECSのクラスターのARN
+          cluster-name: 'mamaguchi' #ECSのクラスター名
           service-name: 'mamaguchi' #サービス名
           container-image-name-updates: "container=rails,tag=${CIRCLE_SHA1}"
