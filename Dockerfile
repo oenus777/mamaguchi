@@ -23,7 +23,7 @@ ADD Gemfile.lock .
 RUN bundle update --bundler
 RUN bundle install -j4
 RUN yarn install
-RUN bin/rails webpacker:install
+RUN rails webpacker:install
 
 ADD . /webapp
 
