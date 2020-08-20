@@ -52,16 +52,16 @@ jobs:
             - rails-demo-yarn-{{ checksum "yarn.lock" }}
             - rails-demo-yarn-
 
-      - run:
-          name: Yarn のインストール
-          command: yarn install --cache-folder ~/.cache/yarn
+      - run: #Yarn の依存関係をインストール
+          name: Yarn インストール
+          command: yarn install
 
       # Yarn または Webpacker のキャッシュを保存します
 
       - save_cache:
           key: rails-demo-yarn-{{ checksum "yarn.lock" }}
           paths:
-            - ~/.cache/yarn
+            - ./node_modules
 
       - run:
           name: DB の待機
