@@ -22,10 +22,10 @@ ADD Gemfile .
 ADD Gemfile.lock .
 RUN bundle update --bundler
 RUN bundle install -j4
-RUN yarn install
-RUN rails webpacker:install
 
 ADD . /webapp
+RUN yarn install
+RUN rails webpacker:install
 
 RUN mkdir -p tmp/sockets
 
