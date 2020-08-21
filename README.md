@@ -1,6 +1,6 @@
 # ママぐち
 <img alt="CircleCI" src="https://img.shields.io/circleci/build/github/suneosama1/mamaguchi/master?style=plastic">    
-====  
+
 
 ## URL
 https://www.mamaguchi.xyz/
@@ -17,7 +17,7 @@ https://www.mamaguchi.xyz/
 ・コメントは共感できる場合のみ  
 ・アドバイスは求められてるなら  
 
-## バージョン
+## 
 ### フロントエンド
 <img src="https://img.shields.io/badge/-HTML5-333.svg?logo=html5&style=plastic">  
 <img src="https://img.shields.io/badge/-CSS3-1572B6.svg?logo=css3&style=plastic">  
@@ -25,7 +25,7 @@ https://www.mamaguchi.xyz/
 
 ### バックエンド
 <img src="https://img.shields.io/badge/-Nginx-bfcfcf.svg?logo=nginx&style=plastic">  
-<img src="https://img.shields.io/badge/-MySQL-f29221.svg?logo=mysql&style=plastic">  
+<img src="https://img.shields.io/badge/-MySQL-f29221.svg?logo=mysql&style=plastic" style="float:left;"> 5.7.28  
 <img src="https://img.shields.io/badge/-Ruby on Rails-CC0000.svg?logo=rubyonrails&style=plastic">  
 <img src="https://img.shields.io/badge/-Ruby-CC342D.svg?logo=ruby&style=plastic">  
 
