@@ -25,8 +25,9 @@ https://www.mamaguchi.xyz/
 
 ### バックエンド
 <img src="https://img.shields.io/badge/-Nginx-bfcfcf.svg?logo=nginx&style=plastic">  
-<img src="https://img.shields.io/badge/-MySQL-f29221.svg?logo=mysql&style=plastic">aaaa  
-<img src="https://img.shields.io/badge/-Ruby on Rails-CC0000.svg?logo=Ruby on Rails&style=plastic">  
+<img src="https://img.shields.io/badge/-MySQL-f29221.svg?logo=mysql&style=plastic">  
+<img src="https://img.shields.io/badge/-Ruby on Rails-CC0000.svg?logo=rubyonrails&style=plastic">  
+<img src="https://img.shields.io/badge/-Ruby-CC342D.svg?logo=ruby&style=plastic">  
 
 ## Requirement
 
