@@ -1,5 +1,6 @@
-ママぐち
+# ママぐち
 ====
+https://img.shields.io/appveyor/build/suneosama1/mamaguchi
 
 ## URL
 https://www.mamaguchi.xyz/
@@ -16,7 +17,8 @@ https://www.mamaguchi.xyz/
 ・コメントは共感できる場合のみ  
 ・アドバイスは求められてるなら  
 
-##  
+## バージョン
+
 
 ## Requirement
 
