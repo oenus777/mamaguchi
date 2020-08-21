@@ -1,6 +1,12 @@
 # ママぐち
-<img alt="CircleCI" src="https://img.shields.io/circleci/build/github/suneosama1/mamaguchi/master?style=plastic">    
-
+![circleci](https://img.shields.io/circleci/build/github/suneosama1/mamaguchi/master?style=plastic")  
+![html](https://img.shields.io/badge/-HTML5-333.svg?logo=html5&style=plastic)  
+<img src="https://img.shields.io/badge/-CSS3-1572B6.svg?logo=css3&style=plastic">  
+<img src="https://img.shields.io/badge/-jQuery-0769AD.svg?logo=jquery&style=plastic">  
+<img src="https://img.shields.io/badge/-Nginx-bfcfcf.svg?logo=nginx&style=plastic">  
+<img src="https://img.shields.io/badge/-MySQL-f29221.svg?logo=mysql&style=plastic">  
+<img src="https://img.shields.io/badge/-Ruby on Rails-CC0000.svg?logo=rubyonrails&style=plastic">  
+<img src="https://img.shields.io/badge/-Ruby-CC342D.svg?logo=ruby&style=plastic"> 
 
 ## URL
 https://www.mamaguchi.xyz/
@@ -19,15 +25,9 @@ https://www.mamaguchi.xyz/
 
 ## 構成
 ### フロントエンド
-<img src="https://img.shields.io/badge/-HTML5-333.svg?logo=html5&style=plastic">  
-<img src="https://img.shields.io/badge/-CSS3-1572B6.svg?logo=css3&style=plastic">  
-<img src="https://img.shields.io/badge/-jQuery-0769AD.svg?logo=jquery&style=plastic">  
 
 ### バックエンド
-<img src="https://img.shields.io/badge/-Nginx-bfcfcf.svg?logo=nginx&style=plastic">  
-<img src="https://img.shields.io/badge/v5.7.28-MySQL-f29221.svg?logo=mysql&style=plastic">  
-<img src="https://img.shields.io/badge/v6.0.3.2-Ruby on Rails-CC0000.svg?logo=rubyonrails&style=plastic">  
-<img src="https://img.shields.io/badge/-Ruby-CC342D.svg?logo=ruby&style=plastic">  
+ 
 
 ## Requirement
 
