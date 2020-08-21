@@ -1,5 +1,5 @@
 # ママぐち
-<img alt="CircleCI" src="https://img.shields.io/circleci/build/github/suneosama1/mamaguchi/master?style=plastic">  
+<img alt="CircleCI" src="https://img.shields.io/circleci/build/github/suneosama1/mamaguchi/master?style=plastic">    
 ====  
 
 ## URL
@@ -18,13 +18,21 @@ https://www.mamaguchi.xyz/
 ・アドバイスは求められてるなら  
 
 ## バージョン
+### フロントエンド
+<img src="https://img.shields.io/badge/-HTML5-333.svg?logo=html5&style=plastic">  
+<img src="https://img.shields.io/badge/-CSS3-1572B6.svg?logo=css3&style=plastic">  
+<img src="https://img.shields.io/badge/-jQuery-0769AD.svg?logo=jquery&style=plastic">  
 
+### バックエンド
+<img src="https://img.shields.io/badge/-Nginx-bfcfcf.svg?logo=nginx&style=plastic">  
+<img src="https://img.shields.io/badge/-MySQL-f29221.svg?logo=mysql&style=plastic">aaaa  
+<img src="https://img.shields.io/badge/-Ruby on Rails-CC0000.svg?logo=Ruby on Rails&style=plastic">  
 
 ## Requirement
 
 ## Usage
 
-## Install
+## Installql
 
 ## Contribution
 
