@@ -1,20 +1,38 @@
-https://img.shields.io/github/issues/suneosama1/mamaguchi.svg
+ママぐち
+====
 
-実装機能
-★ユーザー機能
-　－deviseを使用
-★新規登録・ログイン・ログアウト機能
-　－deviseを使用
-★マイページ・登録情報編集機能
-★記事投稿機能
-★画像投稿機能
-？？？？active_storageを使用
-？？？？複数枚投稿可
-？？？？画像スライド表示機能
-？？？？カテゴリ機能
-ancestryを使った階層構造
-タグ機能
-コメント機能
-検索機能
-ransackを使用
-ページネーション機能
+![mamaguchi](https://user-images.githubusercontent.com/30628476/90847333-36fed200-e3a5-11ea-9950-ee2bf8f406f0.png)
+
+## URL
+mamaguchi.xyz
+
+## 概要
+少しでもママの負担を軽くし、ママが生きやすい社会を実現するWebサービス。
+
+## 説明
+具体的なサービス内容は
+投稿し他のユーザーから反応がある、いわゆるSNSサービスです。
+但し下記のルールを徹底することにより、ママの自己肯定感を高くします。
+・投稿してはいけない内容は無い
+・誹謗中傷、荒らし行為はしない
+・投稿されてる内容を受け止める
+・コメントは共感できる場合のみ
+・アドバイスは求められてるなら
+
+## VS. 
+
+## Requirement
+
+## Usage
+
+## Install
+
+## Contribution
+
+## Licence
+
+[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
+
+## Author
+
+[tcnksm](https://github.com/tcnksm)
