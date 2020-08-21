@@ -1,6 +1,6 @@
 # ママぐち
 ====  
-https://img.shields.io/circleci/build/github/suneosama1/mamaguchi/master
+<svg xmlns="https://img.shields.io/circleci/build/github/suneosama1/mamaguchi/master"></svg>
 
 ## URL
 https://www.mamaguchi.xyz/
