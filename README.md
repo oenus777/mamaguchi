@@ -1,4 +1,5 @@
-/gem/v/:gem
+https://img.shields.io/github/issues/suneosama1/mamaguchi.svg
+
 実装機能
 ★ユーザー機能
 　－deviseを使用
