@@ -25,7 +25,6 @@ RUN bundle install -j4
 
 ADD . /webapp
 RUN yarn install
-RUN rails webpacker:install
 
 RUN mkdir -p tmp/sockets
 
