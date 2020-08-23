@@ -47,6 +47,14 @@ https://www.mamaguchi.xyz/
 ![mysql](https://img.shields.io/badge/-MySQL-f29221.svg?logo=mysql&style=plastic)  
  
 ## クラウドアーキテクチャー
+・常時SSL化、またHTTPS有無、WWW有無関わらず全てhttps://www.mamaguchi.xyz へリダイレクト  
+・ロードバランサーで負荷分散  
+・アプリケーションはコンテナ運用、ECS上で起動しオートスケーリングでタスク数を常に最適化  
+・データーベースはRDS(MySQL)、ストレージはS3を使用  
+・githubへpush requestするとCircleCIで自動テスト実行、テストをパスしたらdockerイメージをビルドしECRへpush  
+ push完了後はTaskDefinitionを更新しECSのサービスも同時に更新され本番環境へデプロイされる。
+
+![mamaguchi (1)](https://user-images.githubusercontent.com/30628476/90980874-dfc15300-e598-11ea-9f1b-fa92ad87cde0.png)
 
 
 ## Usage
