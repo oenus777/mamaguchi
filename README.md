@@ -21,6 +21,19 @@ https://www.mamaguchi.xyz/
 ・コメントは共感できる場合のみ  
 ・アドバイスは求められてるなら  
 
+## 重点
+・大きな不具合が無い  
+　ー前職が業務系アプリケーションの設計や開発だったため止まってしまうことに敏感になりました。  
+ 　そのため細かい様々なケースのテストを記述し大きな不具合を無くしました。  
+・開発、検証、リリースといったサイクルの効率化  
+　ーWebサービスではスピードと品質の担保が重要だと思いCircleCIを導入し開発後の検証、リリースフェーズを自動化。  
+・コンテナ基盤で軽量化、サーバーダウンの低下  
+　ーDockerを使用し処理の軽量化と環境要因でのトラブル減少、またECSを使用しスケーラブルなリソース運用でサーバーダウンの低下を実現。  
+・SEO対策の実装  
+　ー前々職がSEO分析業務だった為、その時の知見を活かし開発に反映。(タイトルやh1タグにキーワードを含めるなど）  
+　　対策キーワードも調査しボリュームがありサービスに適したキーワードの選定。  
+・
+
 ## 構成
 ### インフラ
 ![aws](https://img.shields.io/badge/-Amazon%20AWS-232F3E.svg?logo=amazon-aws&style=flat)  
@@ -41,8 +54,8 @@ https://www.mamaguchi.xyz/
 ![nginx](https://img.shields.io/badge/-Nginx-bfcfcf.svg?logo=nginx&style=plastic)  
  
 ### APサーバー
- Puma  
- 
+![puma](https://img.shields.io/badge/-Puma-FF00FF.svg?logo=puma&style=plastic)  
+
 ### データベース
 ![mysql](https://img.shields.io/badge/-MySQL-f29221.svg?logo=mysql&style=plastic)  
  
@@ -51,10 +64,31 @@ https://www.mamaguchi.xyz/
 ・ロードバランサーで負荷分散  
 ・アプリケーションはコンテナ運用、ECS上で起動しオートスケーリングでタスク数を常に最適化  
 ・データーベースはRDS(MySQL)、ストレージはS3を使用  
-・githubへpush requestするとCircleCIで自動テスト実行、テストをパスしたらdockerイメージをビルドしECRへpush  
- push完了後はTaskDefinitionを更新しECSのサービスも同時に更新され本番環境へデプロイされる。
-
+・githubへpush requestするとCircleCIで自動テスト実行、テストをパスしたらdockerイメージをビルドしECRへpush、push完了後はTaskDefinitionを更新しECSのサービスも同時に更新され本番環境へデプロイされる。
+  
 ![mamaguchi (1)](https://user-images.githubusercontent.com/30628476/90980874-dfc15300-e598-11ea-9f1b-fa92ad87cde0.png)
 
 
-## Usage
+## 機能
+・ユーザー認証機能（deviseで実装）  
+　ーメール認証機能も有り  
+・ユーザー情報編集機能  
+　ープロフィール画像やユーザー名の変更、プロフィール画像のプレビュー表示  
+・ログアウト機能（deviseで実装）  
+・フォロー機能(ajax)
+・新規投稿機能  
+　ー画像を３枚までアップロード可能、タイトルとコンテンツを投稿できる、またカテゴリーも選択可能  
+・投稿編集機能  
+　ー投稿画像、タイトル、コンテンツを編集可能  
+・投稿削除機能  
+・イイね機能(ajax)  
+・お気に入り登録機能(ajax)  
+・コメント機能
+・検索機能（ransuckで実装）  
+　ータイトル、コンテンツを検索対象  
+・カテゴリー機能  
+・ランキング機能  
+　ー直近１ヶ月間の全ての投稿、またカテゴリ内のイイね数が最も多い３つの投稿を表示  
+・ページネーション機能（kaminariで実装）  
+
+
