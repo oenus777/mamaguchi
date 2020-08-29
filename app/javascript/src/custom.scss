@@ -1,6 +1,18 @@
 $main-color: #eb616c;
 $sub-color: #d0525c;
 
+@media (max-width:480px) {
+    #main_image h1 {
+        font-size:18px;
+    }
+    h2 h3 {
+        font-size:20px;
+    }
+    p {
+        font-size:15px;
+    }
+}
+
 body {
     font-family: 'Kosugi Maru', sans-serif;
     background-color:#faf3ea;
@@ -31,6 +43,11 @@ body {
         margin:0;
         padding:0;
     }
+    @media screen and (max-width:480px) {
+        h1 {
+            font-size:17px;
+        }
+    }
 }
 
 .container {
@@ -41,6 +58,11 @@ body {
     h1 {
         font-size:20px;
         color:grey;
+    }
+    @media screen and (max-width:480px) {
+        h2 {
+            font-size:20px;
+        }
     }
 }
 
@@ -128,10 +150,24 @@ body {
         font-size:22px;
         word-wrap: break-word;
     }
+    @media screen and (max-width:480px) {
+        h2 {
+            font-size:20px;
+        }
+        h3 {
+            font-size:13px;
+        }
+        p {
+            font-size:15px;
+        }
+    }
 }
 
 .field {
-    width:90%;    
+    width:50%;
+    @media screen and (max-width:480px) {
+        width:90%;
+    }
 }
 
 .profile_image {
@@ -181,6 +217,14 @@ body {
     }
     .card-body .ranking {
         height:auto;
+    }
+    @media screen and (max-width:480px) {
+        h3 {
+            font-size:20px;
+        }
+        p {
+            font-size:15px;
+        }
     }
 }
 

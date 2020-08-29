@@ -292,8 +292,6 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.4)
-    roboto (1.0.1)
-      rails (>= 4.2)
     rspec-core (3.9.2)
       rspec-support (~> 3.9.3)
     rspec-expectations (3.9.2)
@@ -419,7 +417,6 @@ DEPENDENCIES
   rails (~> 6.0.2, >= 6.0.2.1)
   rails_admin
   ransack
-  roboto
   rspec-rails
   rspec_junit_formatter
   rubocop
