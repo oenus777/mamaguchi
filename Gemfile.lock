@@ -292,6 +292,8 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.4)
+    roboto (1.0.1)
+      rails (>= 4.2)
     rspec-core (3.9.2)
       rspec-support (~> 3.9.3)
     rspec-expectations (3.9.2)
@@ -344,6 +346,8 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    sitemap_generator (6.1.2)
+      builder (~> 3.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -415,12 +419,14 @@ DEPENDENCIES
   rails (~> 6.0.2, >= 6.0.2.1)
   rails_admin
   ransack
+  roboto
   rspec-rails
   rspec_junit_formatter
   rubocop
   rubocop-rails
   sass-rails (>= 6)
   selenium-webdriver
+  sitemap_generator
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

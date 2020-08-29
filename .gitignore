@@ -27,6 +27,7 @@
 
 /public/packs
 /public/packs-test
+/public/sitemap.xml.gz
 /node_modules
 /yarn-error.log
 yarn-debug.log*
