@@ -2,7 +2,7 @@
     <div class="ml-3" id="user_area">
         <%= link_to comment.user do %>
         <% if comment.user.image.attached? %>
-        <%= image_tag comment.user.image.variant(resize: "70x70"), class: "profile_image_small my-auto" %>
+        <%= image_tag comment.user.image.variant(resize_to_fill: [70,70]), class: "profile_image_small my-auto" %>
         <% else %>
         <%= image_pack_tag 'default.jpg', class: "profile_image_small my-auto", :size => "70x70" %>
         <% end %>
