@@ -1,18 +1,6 @@
 $main-color: #eb616c;
 $sub-color: #d0525c;
 
-@media (max-width:480px) {
-    #main_image h1 {
-        font-size:18px;
-    }
-    h2 h3 {
-        font-size:20px;
-    }
-    p {
-        font-size:15px;
-    }
-}
-
 body {
     font-family: 'Kosugi Maru', sans-serif;
     background-color:#faf3ea;
@@ -43,9 +31,9 @@ body {
         margin:0;
         padding:0;
     }
-    @media screen and (max-width:480px) {
+    @media screen and (max-width:415px) {
         h1 {
-            font-size:17px;
+            font-size:15px;
         }
     }
 }
@@ -59,9 +47,18 @@ body {
         font-size:20px;
         color:grey;
     }
-    @media screen and (max-width:480px) {
+    @media screen and (max-width:415px) {
         h2 {
             font-size:20px;
+        }
+        h1 {
+            font-size:17px;
+        }
+        #content_area .container-box {
+            width:92%;
+        }
+        .container-box {
+            width:100%;
         }
     }
 }
@@ -130,6 +127,12 @@ body {
     padding-bottom:50px;
     box-shadow:1px 1px 2px;
     background-color:white;
+    @media screen and (max-width:415px) {
+        width:92%;
+        .form-control {
+            width:96%;
+        }
+    }
 }
 
 .content {
@@ -150,7 +153,7 @@ body {
         font-size:22px;
         word-wrap: break-word;
     }
-    @media screen and (max-width:480px) {
+    @media screen and (max-width:415px) {
         h2 {
             font-size:20px;
         }
@@ -165,7 +168,7 @@ body {
 
 .field {
     width:50%;
-    @media screen and (max-width:480px) {
+    @media screen and (max-width:415px) {
         width:90%;
     }
 }
@@ -218,7 +221,7 @@ body {
     .card-body .ranking {
         height:auto;
     }
-    @media screen and (max-width:480px) {
+    @media screen and (max-width:415px) {
         h3 {
             font-size:20px;
         }
@@ -319,6 +322,9 @@ body {
             flex-basis:60%;
             word-break: 
             break-all;
+            @media screen and (max-width:415px) {
+                font-size:15px;
+            }
         }
     }
 }
@@ -393,6 +399,9 @@ body {
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   width: 80%;
+  @media screen and (max-width:415px) {
+      width:92%;
+  }
   .tab_item {
       width: calc(100%/3);
       height: 50px;
