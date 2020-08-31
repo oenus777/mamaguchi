@@ -210,11 +210,14 @@ body {
             border-top:1px dashed lightgrey;
             position: absolute;
             bottom:0;
-            width:90%;
+            width:100%;
+            text-align:left;
             display:flex;
             align-items:center;
             .button-info {
                 margin-left:auto;
+                width:100%;
+                text-align:right;
             }
         }
     }
@@ -229,6 +232,11 @@ body {
             font-size:15px;
         }
     }
+}
+
+#post_buttons {
+    width:100%;
+    text-align:left;
 }
 
 
