@@ -41,7 +41,6 @@ RSpec.feature 'home', type: :system do
         expect(page).to have_selector 'h1', text: 'ホーム画面'
         expect(page).to have_css '.profile_image'
         expect(page).to have_selector 'p'
-        expect(page).to have_link '投稿する'
         expect(page).to have_selector 'h2', text: 'タイムライン'
         expect(page).to have_selector 'p', text: 'ユーザーをフォローしていません'
         #カテゴリー一覧の項目を確認
@@ -64,7 +63,6 @@ RSpec.feature 'home', type: :system do
         expect(page).to have_selector 'h1', text: 'ホーム画面'
         expect(page).to have_css '.profile_image'
         expect(page).to have_selector 'p'
-        expect(page).to have_link '投稿する'
         expect(page).to have_selector 'h2', text: 'タイムライン'
         #投稿カードの項目を確認
         expect(all('.card')[0]).to have_selector 'img'

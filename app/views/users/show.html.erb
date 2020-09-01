@@ -1,3 +1,6 @@
+<%= link_to new_post_path do %>
+<button class="fixed-button"><%= image_pack_tag('create_post.png') %></button>
+<% end %>
 <% if @user == current_user %>
 <%= render 'users/mypage', collection: @user %>
 <% else %>

@@ -1,3 +1,6 @@
+<%= link_to new_post_path do %>
+<button class="fixed-button"><%= image_pack_tag('create_post.png') %></button>
+<% end %>
 <% set_meta_tags title: "#{@user.name}さんのタイムライン", description: "#{@user.name}さんのホーム画面です。", noindex: true %>
 <div class="container text-center mb-3">
     <%= render 'layouts/flashes' %>
@@ -8,7 +11,6 @@
     <%= image_pack_tag 'default.jpg', class: "profile_image mt-4", :size => "200x200" %>
     <% end %>
     <p class="my-1"><%= @user.name %></p>
-    <%= link_to '投稿する',new_post_path, class:'btn btn-danger btn-lg my-4' %>
     <h2 class="my-3 mx-auto">タイムライン</h2>
 </div>
 <div class="container text-center mb-5" >
