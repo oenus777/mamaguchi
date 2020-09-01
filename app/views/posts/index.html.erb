@@ -1,3 +1,6 @@
+<%= link_to new_post_path do %>
+<button class="fixed-button"><%= image_pack_tag('create_post.png') %></button>
+<% end %>
 <% set_meta_tags title: "新着投稿一覧", description: "新着投稿一覧ページです。" %>
 <div class="container text-center mb-5">
     <%= render 'layouts/flashes' %>

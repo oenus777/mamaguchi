@@ -12,6 +12,35 @@ body {
     }
 }
 
+.fixed-button {
+    z-index: 5;
+    position: fixed;
+    bottom: 50px; 
+    right: 50px;
+    padding:10px;
+    background-color:#dc3545;
+    object-fit:contain;
+    border-radius:50%;
+    border:1px solid #dc3545;
+    box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.4);
+    width:150px;
+    height:150px;
+    @media screen and (max-width:415px) {
+        right: 10px;
+        bottom: 10px;
+        width:90px;
+        height:90px;
+    }
+    img {
+        width:110px;
+        height:110px;
+        @media screen and (max-width:415px) {
+            width:60px;
+            height:60px;
+        }
+    }
+}
+
 .navbar-brand {
     font-size:34px;
     font-weight:bold;
