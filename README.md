@@ -4,7 +4,10 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/suneosama1/mamaguchi?style=plastic)  
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/suneosama1/mamaguchi?style=plastic)  
 ![GitHub repo size](https://img.shields.io/github/repo-size/suneosama1/mamaguchi)  
-
+  
+テストログイン  
+E-mail:test@test.com  
+Password:testtest3  
 
 ## URL
 https://www.mamaguchi.xyz/
