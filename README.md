@@ -6,7 +6,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/suneosama1/mamaguchi)  
   
 テストログイン  
-E-mail:test@test.com  
+E-mail:other@other.com  
 Password:testtest3  
 
 ## URL
