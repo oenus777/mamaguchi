@@ -9,6 +9,7 @@ class LikesController < ApplicationController
     unless @post.like?(current_user)
       @post.like(current_user)
       @post.reload
+      @post.create_notification_by(current_user)
       respond_to do |format|
         format.html { redirect_to request.referrer || root_url }
         format.js

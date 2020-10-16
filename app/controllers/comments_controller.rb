@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
+      @comment.post.create_notification_comment!(current_user, @comment.id)
       flash[:notice] = 'コメントを投稿しました'
       redirect_to @comment.post
     else

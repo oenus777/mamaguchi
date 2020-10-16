@@ -504,6 +504,39 @@ input[name="tab_item"] {
   color: #fff;
 }
 
+.notification {
+    border-bottom:1px dashed #ccc;
+    width: 97%;
+    .notification-img {
+        float:left;
+        text-align:center;
+    }
+    .notification-text {
+        float:right;
+    }
+}
+
+.user-circle {
+    position: absolute;
+    color: #52bb6b;
+    width: 20px;
+    height: 20px;
+    top: 2px;
+    left: 19px;
+    @media screen and (max-width:415px) {
+        left: 11px;
+    }
+}
+
+.toggler-circle {
+    position: absolute;
+    color: #52bb6b;
+    width: 30px;
+    height: 30px;
+    top: 7px;
+    right: 18px;
+}
+
 footer {
     margin-top:100px;
 }

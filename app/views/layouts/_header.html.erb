@@ -1,7 +1,11 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark mb-3 fixed-top" style="background-color:#eb616c;">
         <a class="navbar-brand" href="/">ママぐち<i class="far fa-comment ml-2"></i></a>
+        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <% if user_signed_in? && unchecked_notifications.any? %>
+            <i class="fa fa-circle toggler-circle"></i>
+            <% end %>
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarToggle">
@@ -17,16 +21,31 @@
                     <% if current_user.image.attached? %>
                     <%= link_to "#", class: "nav-link dropdown-toggle", id: "navbarDropdown", role: "button", data: { toggle: "dropdown" } , aria: { haspopup: "true", expanded: "false" } do %>
                     <%= image_tag current_user.image.variant(resize_to_fill: [20, 20]), class: "profile_image" %>
+                        <% if unchecked_notifications.any? %>
+                        <i class="fa fa-circle user-circle"></i>
+                        <% end %>
                     <%= current_user.name %>
                     <% end %>
                     <% else %>
                     <%= link_to "#", class: "nav-link dropdown-toggle", id: "navbarDropdown", role: "button", data: { toggle: "dropdown" } , aria: { haspopup: "true", expanded: "false" } do %>
                     <%= image_pack_tag 'default.jpg', class: "profile_image", :size => "20x20" %>
+                        <% if unchecked_notifications.any? %>
+                        <i class="fa fa-circle user-circle"></i>
+                        <% end %>
                     <%= current_user.name %>
                     <% end %>
                     <% end %>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
                         <%= link_to "マイページ", user_path(current_user), class: "nav-link dropdown-item text-secondary pl-2" %>
+                        <% if unchecked_notifications.any? %>
+                        <%= link_to notifications_path, class: "nav-link dropdown-item text-secondary pl-2" do %>
+                        通知
+                        <%= content_tag :i, "", class: "fas fa-exclamation-circle mr-2", style: "color:red;" %>
+                        <% end %>
+                        <% else %>
+                        <%= link_to "通知", notifications_path, class: "nav-link dropdown-item text-secondary pl-2" %>
+                        <% end %>
+                        
                         <%= link_to "ログアウト", users_sign_out_path, method: :delete, class: "nav-link dropdown-item text-secondary pl-2" %>
                     </div>
                 </li>

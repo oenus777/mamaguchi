@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id', dependent: :destroy
   has_many :followers, through: :reverse_of_relationships, source: :user
   has_many :comment, dependent: :destroy
+  has_many :active_notifications, class_name: "Notification", foreign_key: "send_id", dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification", foreign_key: "receive_id", dependent: :destroy
   
   validates :name, presence: true, length: { maximum: 15 },
                    uniqueness: { case_sensitive: true }
@@ -47,6 +49,18 @@ class User < ApplicationRecord
 
   def following?(user)
     followings.include?(user)
+  end
+  
+  def create_notification_follow!(current_user)
+    #既にフォローされている場合は処理を実行しない
+    temp = Notification.where(["send_id = ? and receive_id = ? and action = ? ",current_user.id, id, 'follow'])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        receive_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
+    end
   end
 
 end

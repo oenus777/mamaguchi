@@ -8,6 +8,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # coding: utf-8
 
+User.create(:id => 1,:name => "testmama",:email => "test@test.com",:password => "testtest3",
+            :password_confirmation => "testtest3",:confirmed_at => Time.now)
+User.create(:id => 6,:name => "othermama",:email => "other@other.com",:password => "testtest3",
+            :password_confirmation => "testtest3",:confirmed_at => Time.now)
+
 Category.create(:id => 1,:name => "育児")
 Category.create(:id => 2,:name => "旦那")
 Category.create(:id => 3,:name => "両親")
