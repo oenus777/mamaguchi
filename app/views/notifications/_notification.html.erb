@@ -1,0 +1,14 @@
+<% visiter = notification.visiter %>
+<% post = notification.post %>
+
+<div class="notification">
+  <%= link_to user_path(visiter) do %>
+  <% if visiter.image.attached? %>
+  <%= image_tag visiter.image , class: "profile_image_small my-4" %>
+  <% else %>
+  <%= image_pack_tag 'default.jpg' , class: "profile_image_small my-4" %>
+  <% end %>
+  <% end %>
+  <%= notification_form(notification) %><span class=""><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span>
+  <br>
+</div>
