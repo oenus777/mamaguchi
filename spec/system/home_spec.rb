@@ -32,7 +32,7 @@ RSpec.feature 'home', type: :system do
     
     scenario 'ログイン時、トップページの要素検証（ユーザーをフォローしていない場合）' do
         #ログイン
-        login(post1.user)
+        login(user)
         
         #トップページへアクセス
         visit root_path
@@ -43,6 +43,8 @@ RSpec.feature 'home', type: :system do
         expect(page).to have_selector 'p'
         expect(page).to have_selector 'h2', text: 'タイムライン'
         expect(page).to have_selector 'p', text: 'ユーザーをフォローしていません'
+        #ユーザーがリコメンドされていることを確認
+        expect(page).to have_css '.follow-box'
         #カテゴリー一覧の項目を確認
         expect(find('#category_list .card-header')).to have_content 'カテゴリ一覧'
         expect(find('#category_list .category-lists')).to have_link 'test'
