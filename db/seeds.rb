@@ -12,6 +12,16 @@ User.create(:id => 1,:name => "testmama",:email => "test@test.com",:password => 
             :password_confirmation => "testtest3",:confirmed_at => Time.now)
 User.create(:id => 6,:name => "othermama",:email => "other@other.com",:password => "testtest3",
             :password_confirmation => "testtest3",:confirmed_at => Time.now)
+User.create(:id => 7,:name => "aaamama",:email => "aaa@aaa.com",:password => "testtest3",
+            :password_confirmation => "testtest3",:confirmed_at => Time.now)
+User.create(:id => 8,:name => "bbbmama",:email => "bbb@bbb.com",:password => "testtest3",
+            :password_confirmation => "testtest3",:confirmed_at => Time.now)
+User.create(:id => 9,:name => "cccmama",:email => "ccc@ccc.com",:password => "testtest3",
+            :password_confirmation => "testtest3",:confirmed_at => Time.now)
+User.create(:id => 10,:name => "dddmama",:email => "ddd@ddd.com",:password => "testtest3",
+            :password_confirmation => "testtest3",:confirmed_at => Time.now)
+User.create(:id => 11,:name => "eeemama",:email => "eee@eee.com",:password => "testtest3",
+            :password_confirmation => "testtest3",:confirmed_at => Time.now)
 
 Category.create(:id => 1,:name => "育児")
 Category.create(:id => 2,:name => "旦那")

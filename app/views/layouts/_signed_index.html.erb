@@ -20,7 +20,25 @@
             <%= render partial: 'posts/cards', collection: @follow_posts, as: "post" %>
             <% else %>
             <div class="card mt-2">
-                <p class="py-5" style="font-size:20px;">ユーザーをフォローしていません</p>
+                <p class="pt-5" style="font-size:20px;">ユーザーをフォローしていません<br>フォローしてみましょう！</p>
+                <% if @recommend_users.present? %>
+                    <% @recommend_users.each do |recommend_user| %>
+                    <div class="follow-box py-4">
+                        <div class="follow py-4 mx-auto">
+                            <div class="ml-3">
+                                <%= link_to recommend_user do %>
+                                <% if recommend_user.image.attached? %>
+                                <%= image_tag recommend_user.image.variant(resize_to_fill: [70,70]), class: "profile_image my-auto" %>
+                                <% else %>
+                                <%= image_pack_tag 'default.jpg', class: "profile_image my-auto", :size => "70x70" %>
+                                <% end %>
+                                <span class="font"><%= recommend_user.name %></span>
+                                <% end %>
+            　               </div>
+                        </div>
+                    </div>
+                    <% end %>
+                <% end %>
             </div>
             <% end %>
             <div class="my-4">
