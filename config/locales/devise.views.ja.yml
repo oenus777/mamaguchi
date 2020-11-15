@@ -36,6 +36,10 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+      community:
+        image: コミュニティ画像
+        name: コミュニティ名
+        description: コミュニティ説明
     models:
       user: ユーザ
   users:

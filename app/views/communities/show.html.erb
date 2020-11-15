@@ -1,0 +1,22 @@
+<% set_meta_tags title: "#{@community.name}のコミュニティページ", description: "#{@community.name}のコミュニティページです。", noindex: true %>
+<div class="container text-center mb-5">
+    <%= render 'layouts/flashes' %>
+    <h1><%= @community.name %>のコミュニティページ</h1>
+    <div class="container-box mx-auto">
+        <h2 class="mb-3 mx-auto"><span class="header px-2">タイトル</span><%= @community.name %></h2>
+        <% if @community.user == current_user %>
+            <%= link_to '編集',edit_community_path(current_user) %>
+            <%= link_to '削除', community_path(@community), method: :delete, data: { confirm: "#{@community.name}を削除してもよろしいですか？" } %>
+        <% end %>
+        <h2 class="mb-3 mx-auto"><span class="community-header px-2">管理人</span>
+        <%= link_to user_path(@community.user) do %>
+        <% if @community.user.image.attached? %>
+        <%= image_tag @community.user.image.variant(resize_to_fill: [40, 40] ), class: "profile_image my-4" %>
+        <% else %>
+        <%= image_pack_tag 'default.jpg', class: "profile_image my-4", :size => "40x40" %>
+        <% end %>
+        <%= @community.user.name %></h2>
+        <% end %>
+        <p class="mb-3 mx-auto"><span class="header px-2">説明</span><%= @community.description %></p>
+    </div>
+</div>

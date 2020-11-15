@@ -1,5 +1,6 @@
 $main-color: #eb616c;
 $sub-color: #d0525c;
+$community-color: #ffc107;
 
 body {
     font-family: 'Kosugi Maru', sans-serif;
@@ -161,6 +162,20 @@ body {
         .form-control {
             width:96%;
         }
+    }
+    .header {
+        background-color: $main-color;
+        border-radius: 14px;
+        padding: 10px;
+        margin-right: 10px;
+        color: white;
+    }
+    .community-header {
+        background-color: $community-color;
+        border-radius: 14px;
+        padding: 10px;
+        margin-right: 10px;
+        color: white;
     }
 }
 

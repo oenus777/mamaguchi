@@ -1,0 +1,24 @@
+<% set_meta_tags title: "#{current_user.name}さんのコミュニティ新規作成", description: "#{current_user.name}さんのコミュニティ新規作成画面です。", noindex: true %>
+<div class="container mb-5">
+    <h1 class="text-center">コミュニティ新規作成</h1>
+    <div class="container-box mx-auto">
+        <%= form_for(@community) do |f| %>
+        <div class="field mt-4">
+          <%= f.label :image,class: 'list',style: "margin-left:45px;" %><br />
+        </div>
+   　　　<div class="field">
+    　  　  <%= f.label :name,class: 'list' %><br />
+          <%= f.text_field :name,class: "form-control ml-4 mt-3",maxlength: "30" %>
+  　　　　</div>
+  　　　　
+  　　　　<div class="field">
+    　　<%= f.label :description,class: 'list ml-2' %><br />
+    　　<%= f.text_area :description,class: "form-control ml-4",maxlength: "1000",rows: 12 %>
+  　　　　</div>
+  　　　　
+        <div class="actions ml-4">
+        <%= f.submit "新規作成",class: 'btn btn-danger btn-lg my-3' %>
+        </div>
+        <% end %>
+    </div>
+</div>
