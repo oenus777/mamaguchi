@@ -11,7 +11,7 @@ RSpec.feature 'home', type: :system do
         
         #トップページの各項目を確認
         expect(page).to have_selector 'img'
-        expect(page).to have_selector 'h1', text: '人に言えない悩みや愚痴がある子育て中のママへ'
+        expect(page).to have_selector 'h1', text: '育児の孤独感やママ友の悩みを抱え込まず共有しましょう'
         expect(page).to have_link '投稿する'
         expect(page).to have_selector 'h2', text: '新着投稿一覧'
         expect(page).to have_selector 'p', text: '投稿一覧を全て見たい方はログインしてください。'
