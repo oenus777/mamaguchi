@@ -27,4 +27,5 @@ Rails.application.routes.draw do
   resources :relationships, only: %i[create destroy]
   resources :comments, only: %i[create destroy]
   resources :notifications, only: :index
+  resources :communities
 end

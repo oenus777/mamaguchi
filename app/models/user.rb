@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :comment, dependent: :destroy
   has_many :active_notifications, class_name: "Notification", foreign_key: "send_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification", foreign_key: "receive_id", dependent: :destroy
+  has_many :community, dependent: :destroy
   
   validates :name, presence: true, length: { maximum: 15 },
                    uniqueness: { case_sensitive: true }
