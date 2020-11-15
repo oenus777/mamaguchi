@@ -31,7 +31,7 @@ RSpec.feature 'Registration', type: :system do
         click_button '新規登録'
         
         #トップページへリダイレクト
-        expect(page).to have_content '人に言えない悩みや愚痴がある子育て中のママへ'
+        expect(page).to have_content '育児の孤独感やママ友の悩みを抱え込まず共有しましょう'
         expect(page).to have_content '本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。'
     end
     
