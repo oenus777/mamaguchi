@@ -4,9 +4,13 @@
     <h1><%= @community.name %>のコミュニティページ</h1>
     <div class="container-box mx-auto">
         <h2 class="mb-3 mx-auto"><span class="header px-2">タイトル</span><%= @community.name %></h2>
+        <%= image_pack_tag 'community.jpg', class: "profile_image my-4", :size => "150x150" %>
         <% if @community.user == current_user %>
             <%= link_to '編集',edit_community_path(current_user) %>
             <%= link_to '削除', community_path(@community), method: :delete, data: { confirm: "#{@community.name}を削除してもよろしいですか？" } %>
+        <% end %>
+        <%= link_to joinings_path do %>
+            <p><%= "参加者一覧 #{@community.joining_users.count}" %></p>
         <% end %>
         <h2 class="mb-3 mx-auto"><span class="community-header px-2">管理人</span>
         <%= link_to user_path(@community.user) do %>
@@ -17,6 +21,6 @@
         <% end %>
         <%= @community.user.name %></h2>
         <% end %>
-        <p class="mb-3 mx-auto"><span class="header px-2">説明</span><%= @community.description %></p>
+        <p class="my-4 mx-auto"><span class="header px-2">説明</span><%= @community.description %></p>
     </div>
 </div>
