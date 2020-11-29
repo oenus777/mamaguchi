@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   get  '/users/:id/followers' => 'followers#index', as: 'followers'
   get  '/users/:id/followings' => 'followings#index', as: 'followings'
   get  '/posts/category/:id' => 'categories#show', as: 'category'
-  get 'categories/show'
+  get  'categories/show'
+  get  '/communities/:id/joinings' => 'joinings#index', as: 'joinings'
   resources :users, only: %i[show edit update]
   resources :posts
   resources :likes, only: %i[create destroy]
